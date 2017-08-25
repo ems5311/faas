@@ -70,7 +70,7 @@ provider:
 functions:
   url_ping:
     lang: python
-    handler: ./sample/url_ping
+    handler: ./sample/url-ping
     image: alexellis2/faas-urlping
 ```
 
