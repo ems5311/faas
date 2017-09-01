@@ -12,8 +12,22 @@ Use this FaaS function using R.
 -   Option 2 - use the [faas-cli](https://github.com/alexellis/faas-cli/) (experimental)
 
 <!-- -->
+- Install OpenFaaS if you haven't already
+- Run `./build.sh`
+- Copy the following into your YAML deployment file, in the `functions:` section:
+```
+functions:
+  ...
 
-    # curl -sSL https://get.openfaas.com | sudo sh
+  base-r:
+    lang: Dockerfile
+    handler: ./sample-functions/BaseFunctions/R
+    image: functions/base:R-3.4.1-alpine
+
+```
+- run the following two commands:
+# faas-cli build -f _deploymentfile.yml_
+# faas-cli deploy -f _deploymentfile.yml_
 
     # faas-cli -action=deploy -image=functions/base:R-3.4.1-alpine -name=baser
     200 OK
