@@ -60,5 +60,25 @@ functions:
 
   Phantomjs:
     lang: Dockerfile
-    handler: ./NodeInfo
-    image: functions/node-info:latest
+    handler: ./Phantomjs
+    image: functions/phantomjs:latest
+
+  ResizeImageMagick:
+    lang: Dockerfile
+    handler: ./ResizeImageMagick
+    image: functions/resizer:latest
+
+  SentimentAnalysis:
+    lang: Dockerfile
+    handler: ./SentimentAnalysis
+    image: functions/sentimentanalysis:latest
+
+  WebhookStash:
+    lang: Dockerfile
+    handler: ./WebhookStash
+    image: functions/webhookstash:latest
+
+  WordCountFunction:
+    lang: Dockerfile
+    handler: ./WordCountFunction
+    image: functions/wordcount:latest
