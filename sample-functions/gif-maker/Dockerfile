@@ -7,4 +7,6 @@ RUN apk --no-cache add ffmpeg gifsicle curl \
 WORKDIR /root/
 COPY entry.sh   .
 ENV fprocess="./entry.sh"
+ENV read_timeout="100"
+ENV write_timeout="100"
 CMD ["fwatchdog"]

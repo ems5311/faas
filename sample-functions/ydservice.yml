@@ -1,0 +1,14 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  ydservice:
+    lang: node
+    handler: ./ydservice
+    image: ems5311/ydservice:latest
+
+  gif-maker:
+    lang: Dockerfile
+    handler: ./gif-maker
+    image: ems5311/gif-maker:latest
