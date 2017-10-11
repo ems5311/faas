@@ -16,13 +16,13 @@ import (
 
 	"os"
 
-	"github.com/Sirupsen/logrus"
-	"github.com/openfaas/faas/gateway/metrics"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
 	"github.com/gorilla/mux"
+	"github.com/openfaas/faas/gateway/metrics"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/sirupsen/logrus"
 )
 
 // MakeProxy creates a proxy for HTTP web requests which can be routed to a function.

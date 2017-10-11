@@ -12,13 +12,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openfaas/faas/gateway/metrics"
-	"github.com/openfaas/faas/gateway/requests"
 	"github.com/docker/distribution/reference"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/swarm"
 	"github.com/docker/docker/client"
 	"github.com/docker/docker/registry"
+	"github.com/openfaas/faas/gateway/metrics"
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 var linuxOnlyConstraints = []string{"node.platform.os == linux"}
@@ -85,7 +85,7 @@ func makeSpec(request *requests.CreateFunctionRequest, maxRestarts uint64, resta
 				Condition:   swarm.RestartPolicyConditionAny,
 				Delay:       &restartDelay,
 			},
-			ContainerSpec: swarm.ContainerSpec{
+			ContainerSpec: &swarm.ContainerSpec{
 				Image:  request.Image,
 				Labels: map[string]string{"function": "true"},
 			},

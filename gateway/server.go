@@ -12,13 +12,13 @@ import (
 
 	"fmt"
 
-	"github.com/Sirupsen/logrus"
-	"github.com/docker/docker/client"
+	"github.com/moby/moby/client"
 	internalHandlers "github.com/openfaas/faas/gateway/handlers"
 	"github.com/openfaas/faas/gateway/metrics"
 	"github.com/openfaas/faas/gateway/plugin"
 	"github.com/openfaas/faas/gateway/types"
 	natsHandler "github.com/openfaas/nats-queue-worker/handler"
+	"github.com/sirupsen/logrus"
 
 	"github.com/gorilla/mux"
 )
@@ -47,7 +47,7 @@ func main() {
 	readConfig := types.ReadConfig{}
 	config := readConfig.Read(osEnv)
 
-	log.Printf("HTTP Read Timeout: %s", config.ReadTimeout)
+	log.Printf("HTTP Reeeeeeeeeeeeeeeeeeeeeeeeeeeead Timeout: %s", config.ReadTimeout)
 	log.Printf("HTTP Write Timeout: %s", config.WriteTimeout)
 
 	var dockerClient *client.Client

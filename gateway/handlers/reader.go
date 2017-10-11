@@ -11,11 +11,13 @@ import (
 
 	"strings"
 
-	"github.com/openfaas/faas/gateway/metrics"
-	"github.com/openfaas/faas/gateway/requests"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
+	runconfigopts "github.com/docker/docker/runconfig/opts"
+	swarmapi "github.com/docker/swarmkit/api"
+	"github.com/openfaas/faas/gateway/metrics"
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 // MakeFunctionReader gives a summary of Function structs with Docker service stats overlaid with Prometheus counters.
@@ -37,6 +39,17 @@ func MakeFunctionReader(metricsOptions metrics.MetricOptions, c *client.Client) 
 		var functions []requests.Function
 
 		for _, service := range services {
+			/*
+				log.Printf("before running ServiceInspectWithRaw: %v\n", service)
+				rawService, byteRes, err := c.ServiceInspectWithRaw(context.Background(), service.ID, types.ServiceInspectOptions{})
+
+				log.Printf("Result of ServiceInspectWithRaw: rawService: %v, byteRes: %s, err: %v\n", rawService, string(byteRes[:]), err)
+			*/
+			filters := &swarmapi.ListServicesRequest_Filters{
+				NamePrefixes: options.Filters.Get("name"),
+				IDPrefixes:   options.Filters.Get("id"),
+				Labels:       runconfigopts.ConvertKVStringsToMap(options.Filters.Get("label")),
+			}
 
 			if len(service.Spec.TaskTemplate.ContainerSpec.Labels["function"]) > 0 {
 				var envProcess string
