@@ -2,7 +2,7 @@
 echo Building functions/gateway:build-armhf
 
 docker build --build-arg https_proxy=$https_proxy --build-arg http_proxy=$http_proxy \
-    -t functions/gateway:build-armhf . -f Dockerfile.build.armhf
+    -t functions/gateway:build-armhf . -f Dockerfile.armhf
 
 docker create --name gateway_extract functions/gateway:build-armhf echo
 docker cp gateway_extract:/go/src/github.com/openfaas/faas/gateway/app ./gateway
