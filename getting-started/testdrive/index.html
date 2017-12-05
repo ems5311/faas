@@ -1087,7 +1087,7 @@
 <p>Here is a screenshot of the API gateway portal - designed for ease of use.</p>
 <p><img alt="Portal" src="https://pbs.twimg.com/media/C7bkpZbWwAAnKsx.jpg" /></p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>We have provided several sample functions which are built-into the <em>Docker Stack</em> file we deploy during the test drive. You'll be up and running in a few minutes and invoking functions via the Web UI or <code>curl</code>. When you're ready to deploy your own function click "Create Function" in the UI or head over to the CLI tutorial:</p>
+<p>We have provided several sample functions which are built-into the <em>Docker Stack</em> file we deploy during the test drive. You'll be up and running in a few minutes and invoking functions via the Web UI or <code>curl</code>. When you're ready to deploy your own function click "Deploy Function" in the UI or head over to the CLI tutorial:</p>
 <ul>
 <li><a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Morning coffee with the OpenFaaS CLI</a></li>
 </ul>
@@ -1110,7 +1110,7 @@
 <div class="codehilite"><pre><span></span># docker swarm init --advertise-addr eth0 &amp;&amp; \
   git clone https://github.com/openfaas/faas &amp;&amp; \
   cd faas &amp;&amp; \
-  git checkout 0.6.6-beta1 &amp;&amp; \
+  git checkout master &amp;&amp; \
   ./deploy_stack.sh &amp;&amp; \
   docker service ls
 </pre></div>

@@ -610,6 +610,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#asynchronous-call-backs" title="Asynchronous call-backs" class="md-nav__link">
+    Asynchronous call-backs
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -690,6 +697,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#asynchronous-call-backs" title="Asynchronous call-backs" class="md-nav__link">
+    Asynchronous call-backs
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -763,6 +777,16 @@ def handler(req):
 <ul>
 <li><a href="https://github.com/alexellis/faas-twitter-fanclub/blob/master/README.md">GitHub to Twitter Fanclub</a></li>
 </ul>
+<h2 id="asynchronous-call-backs">Asynchronous call-backs<a class="headerlink" href="#asynchronous-call-backs" title="Permanent link">&para;</a></h2>
+<p>If you invoke a function asynchronously you have two options for getting the result back:</p>
+<ul>
+<li>Update the function</li>
+</ul>
+<p>You can update your code to call another function / store state in another service</p>
+<ul>
+<li>X-Callback-Url</li>
+</ul>
+<p>If you set a header for <code>X-Callback-Url</code> then that will be invoked after the function has run, <a href="https://github.com/openfaas/faas/blob/1aa6270fcc274cc36d90e0a9e4caa3eb71912ae0/guide/asynchronous.md#call-a-function">read more</a></p>
                 
                   
                 

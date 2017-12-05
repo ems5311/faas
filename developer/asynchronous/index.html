@@ -708,11 +708,58 @@
                 
                 
                 <h1 id="guide-on-asynchronous-processing">Guide on Asynchronous processing<a class="headerlink" href="#guide-on-asynchronous-processing" title="Permanent link">&para;</a></h1>
-<p>By default functions are accessed synchronously via the following route:</p>
-<div class="codehilite"><pre><span></span>$ curl --data &quot;message&quot; http://gateway/function/{function_name}
+<p>Asynchronous function calls can be queued up using the following route:</p>
+<div class="codehilite"><pre><span></span>$ curl --data &quot;message&quot; http://gateway:8080/async-function/{function_name}
 </pre></div>
 
-<p>As of <a href="https://github.com/openfaas/faas/pull/131">PR #131</a> asynchronous invocation is available for testing.</p>
+<p>Summary of modes for calling functions via API Gateway:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Method</th>
+<th>URL</th>
+<th>Body</th>
+<th>Headers</th>
+<th>Query string</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synchronous</td>
+<td>POST</td>
+<td>http://gateway:8080/function/{function_name}</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Synchronous</td>
+<td>GET</td>
+<td>http://gateway:8080/function/{function_name}</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Asynchronous</td>
+<td>POST</td>
+<td>http://gateway:8080/async-function/{function_name}</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes <a href="https://github.com/openfaas/faas/issues/369">#369</a></td>
+</tr>
+<tr>
+<td>Asynchronous</td>
+<td>GET</td>
+<td>Not supported</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>This work was carried out under <a href="https://github.com/openfaas/faas/pull/131">PR #131</a>.</p>
 <p><em>Logical flow for synchronous functions:</em></p>
 <p><img alt="" src="https://user-images.githubusercontent.com/6358735/29469107-cbc38c88-843e-11e7-9516-c0dd33bab63b.png" /></p>
 <h2 id="why-use-asynchronous-processing">Why use Asynchronous processing?<a class="headerlink" href="#why-use-asynchronous-processing" title="Permanent link">&para;</a></h2>
@@ -739,19 +786,20 @@
 </pre></div>
 
 <p>K8s:</p>
-<div class="codehilite"><pre><span></span>$ kubectl -f delete ./faas.yml
-$ kubectl -f apply ./faas.async.yml,nats.yml
+<div class="codehilite"><pre><span></span>$ kubectl delete -f ./faas.yml
+$ kubectl apply -f./faas.async.yml,nats.yml
 </pre></div>
 
 <h2 id="call-a-function">Call a function<a class="headerlink" href="#call-a-function" title="Permanent link">&para;</a></h2>
 <p>Functions do not need to be modified to work asynchronously, just use this alternate route:</p>
-<div class="codehilite"><pre><span></span>$ http://gateway/async-function/{function_name}
+<div class="codehilite"><pre><span></span>http://gateway:8080/async-function/{function_name}
 </pre></div>
 
 <p>If you want the function to call another function or a different endpoint when it is finished then pass the <code>X-Callback-Url</code> header. This is optional.</p>
-<div class="codehilite"><pre><span></span>$ curl http://gateway/async-function/{function_name} --data-binary @sample.json -H &quot;X-Callback-Url: http://gateway/function/send2slack&quot;
+<div class="codehilite"><pre><span></span>$ curl http://gateway:8080/async-function/{function_name} --data-binary @sample.json -H &quot;X-Callback-Url: http://gateway:8080/function/send2slack&quot;
 </pre></div>
 
+<p>You can also use the following site to setup a public endpoint for testing HTTP callbacks: <a href="https://requestb.in">requestb.in</a></p>
 <h2 id="extend-function-timeouts">Extend function timeouts<a class="headerlink" href="#extend-function-timeouts" title="Permanent link">&para;</a></h2>
 <p>Functions have three timeouts configurable by environmental variables expressed in seconds:</p>
 <p>HTTP:</p>
