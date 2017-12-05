@@ -1,0 +1,1431 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
+      
+      
+        <link rel="canonical" href="https://www.openfaas.com/getting-started/testdrive/">
+      
+      
+        <meta name="author" content="OpenFaaS Authors">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.1">
+    
+    
+      
+        <title>Part 4 - Create a Function - OpenFaaS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.41c6761c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="blue" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.openfaas.com/" title="OpenFaaS" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                OpenFaaS
+              </span>
+              <span class="md-header-nav__topic">
+                Part 4 - Create a Function
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/openfaas/faas" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      openfaas/faas
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="24" height="24">
+      
+    </span>
+    OpenFaaS
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/openfaas/faas" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      openfaas/faas
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploy/" title="Part 1 - Deploy" class="md-nav__link">
+      Part 1 - Deploy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Part 2 - OpenFaaS CLI
+      </label>
+    
+    <a href="./" title="Part 2 - OpenFaaS CLI" class="md-nav__link md-nav__link--active">
+      Part 2 - OpenFaaS CLI
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#begin-the-testdrive" title="Begin the TestDrive" class="md-nav__link">
+    Begin the TestDrive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-reqs" title="Pre-reqs" class="md-nav__link">
+    Pre-reqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" title="Start here" class="md-nav__link">
+    Start here
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-faas-cli" title="Install FaaS-CLI" class="md-nav__link">
+    Install FaaS-CLI
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke-the-sample-functions-with-curl-or-postman" title="Invoke the sample functions with curl or Postman:" class="md-nav__link">
+    Invoke the sample functions with curl or Postman:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-sample-functions" title="Working with the sample functions" class="md-nav__link">
+    Working with the sample functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-functions-from-templates-and-the-cli" title="Build functions from templates and the CLI" class="md-nav__link">
+    Build functions from templates and the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-a-custom-docker-image" title="Package a custom Docker image" class="md-nav__link">
+    Package a custom Docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-new-functions-to-faas-at-runtime" title="Add new functions to FaaS at runtime" class="md-nav__link">
+    Add new functions to FaaS at runtime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-function-at-runtime" title="Delete a function at runtime" class="md-nav__link">
+    Delete a function at runtime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-functions-with-curl" title="Exploring the functions with curl" class="md-nav__link">
+    Exploring the functions with curl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
+      Part 3 - Sample Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Part 4 - Create a Function
+      </label>
+    
+    <a href="./" title="Part 4 - Create a Function" class="md-nav__link md-nav__link--active">
+      Part 4 - Create a Function
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#begin-the-testdrive" title="Begin the TestDrive" class="md-nav__link">
+    Begin the TestDrive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-reqs" title="Pre-reqs" class="md-nav__link">
+    Pre-reqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" title="Start here" class="md-nav__link">
+    Start here
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-faas-cli" title="Install FaaS-CLI" class="md-nav__link">
+    Install FaaS-CLI
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke-the-sample-functions-with-curl-or-postman" title="Invoke the sample functions with curl or Postman:" class="md-nav__link">
+    Invoke the sample functions with curl or Postman:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-sample-functions" title="Working with the sample functions" class="md-nav__link">
+    Working with the sample functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-functions-from-templates-and-the-cli" title="Build functions from templates and the CLI" class="md-nav__link">
+    Build functions from templates and the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-a-custom-docker-image" title="Package a custom Docker image" class="md-nav__link">
+    Package a custom Docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-new-functions-to-faas-at-runtime" title="Add new functions to FaaS at runtime" class="md-nav__link">
+    Add new functions to FaaS at runtime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-function-at-runtime" title="Delete a function at runtime" class="md-nav__link">
+    Delete a function at runtime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-functions-with-curl" title="Exploring the functions with curl" class="md-nav__link">
+    Exploring the functions with curl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Part 4 - Create a Function
+      </label>
+    
+    <a href="./" title="Part 4 - Create a Function" class="md-nav__link md-nav__link--active">
+      Part 4 - Create a Function
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#begin-the-testdrive" title="Begin the TestDrive" class="md-nav__link">
+    Begin the TestDrive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-reqs" title="Pre-reqs" class="md-nav__link">
+    Pre-reqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" title="Start here" class="md-nav__link">
+    Start here
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-faas-cli" title="Install FaaS-CLI" class="md-nav__link">
+    Install FaaS-CLI
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke-the-sample-functions-with-curl-or-postman" title="Invoke the sample functions with curl or Postman:" class="md-nav__link">
+    Invoke the sample functions with curl or Postman:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-sample-functions" title="Working with the sample functions" class="md-nav__link">
+    Working with the sample functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-functions-from-templates-and-the-cli" title="Build functions from templates and the CLI" class="md-nav__link">
+    Build functions from templates and the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-a-custom-docker-image" title="Package a custom Docker image" class="md-nav__link">
+    Package a custom Docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-new-functions-to-faas-at-runtime" title="Add new functions to FaaS at runtime" class="md-nav__link">
+    Add new functions to FaaS at runtime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-function-at-runtime" title="Delete a function at runtime" class="md-nav__link">
+    Delete a function at runtime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-functions-with-curl" title="Exploring the functions with curl" class="md-nav__link">
+    Exploring the functions with curl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/" title="Architecture" class="md-nav__link">
+      Architecture
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Deployment Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Deployment Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/swarm/" title="Docker Swarm" class="md-nav__link">
+      Docker Swarm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/play-with-docker/" title="Play-with-Docker" class="md-nav__link">
+      Play-with-Docker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Integration Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Integration Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integrations/kong/" title="Kong" class="md-nav__link">
+      Kong
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../integrations/traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Development
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/gateway/" title="API Gateway" class="md-nav__link">
+      API Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/dashboard/" title="Dashboard UI" class="md-nav__link">
+      Dashboard UI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/watchdog/" title="Watchdog" class="md-nav__link">
+      Watchdog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/asynchronous/" title="Asynchronous Functions" class="md-nav__link">
+      Asynchronous Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/swagger/" title="Swagger API" class="md-nav__link">
+      Swagger API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/debug/" title="Debugging" class="md-nav__link">
+      Debugging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/backends/" title="Backends" class="md-nav__link">
+      Backends
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/chaining_functions/" title="Function Chaining" class="md-nav__link">
+      Function Chaining
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#begin-the-testdrive" title="Begin the TestDrive" class="md-nav__link">
+    Begin the TestDrive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-reqs" title="Pre-reqs" class="md-nav__link">
+    Pre-reqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" title="Start here" class="md-nav__link">
+    Start here
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-faas-cli" title="Install FaaS-CLI" class="md-nav__link">
+    Install FaaS-CLI
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke-the-sample-functions-with-curl-or-postman" title="Invoke the sample functions with curl or Postman:" class="md-nav__link">
+    Invoke the sample functions with curl or Postman:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-sample-functions" title="Working with the sample functions" class="md-nav__link">
+    Working with the sample functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-functions-from-templates-and-the-cli" title="Build functions from templates and the CLI" class="md-nav__link">
+    Build functions from templates and the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-a-custom-docker-image" title="Package a custom Docker image" class="md-nav__link">
+    Package a custom Docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-new-functions-to-faas-at-runtime" title="Add new functions to FaaS at runtime" class="md-nav__link">
+    Add new functions to FaaS at runtime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-function-at-runtime" title="Delete a function at runtime" class="md-nav__link">
+    Delete a function at runtime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-functions-with-curl" title="Exploring the functions with curl" class="md-nav__link">
+    Exploring the functions with curl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="openfaas-testdrive">OpenFaaS - TestDrive<a class="headerlink" href="#openfaas-testdrive" title="Permanent link">&para;</a></h1>
+<p>OpenFaaS (or Functions as a Service) is a framework for building serverless functions on Docker Swarm and Kubernetes with first class metrics. Any UNIX process can be packaged as a function in FaaS enabling you to consume a range of web events without repetitive boiler-plate coding.</p>
+<blockquote>
+<p>Please support the project and put a <strong>Star</strong> on the repo.</p>
+</blockquote>
+<h2 id="begin-the-testdrive">Begin the TestDrive<a class="headerlink" href="#begin-the-testdrive" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/TestDrive.md">Begin the TestDrive with Docker Swarm</a></li>
+</ul>
+<p>Here is a screenshot of the API gateway portal - designed for ease of use.</p>
+<p><img alt="Portal" src="https://pbs.twimg.com/media/C7bkpZbWwAAnKsx.jpg" /></p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>We have provided several sample functions which are built-into the <em>Docker Stack</em> file we deploy during the test drive. You'll be up and running in a few minutes and invoking functions via the Web UI or <code>curl</code>. When you're ready to deploy your own function click "Create Function" in the UI or head over to the CLI tutorial:</p>
+<ul>
+<li><a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Morning coffee with the OpenFaaS CLI</a></li>
+</ul>
+<h2 id="pre-reqs">Pre-reqs<a class="headerlink" href="#pre-reqs" title="Permanent link">&para;</a></h2>
+<p>The guide makes use of a cloud playground service called <a href="http://play-with-docker.com/">play-with-docker.com</a> that provides free Docker hosts for around 5 hours. If you want to try this on your own laptop just follow along.</p>
+<p>Background info:</p>
+<ul>
+<li>There is also a <a href="http://blog.alexellis.io/functions-as-a-service/">blog post</a> that goes into the background of the project.</li>
+</ul>
+<h2 id="start-here">Start here<a class="headerlink" href="#start-here" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>So let's head over to <a href="http://play-with-docker.com/">http://play-with-docker.com/</a> and start a new session. You will probably have to fill out a Captcha.</p>
+</li>
+<li>
+<p>Click "Add New Instance" to create a single Docker host (more can be added later)</p>
+</li>
+</ul>
+<p>This one-shot script clones the code, sets up a Docker Swarm master node then deploys OpenFaaS with the sample stack:</p>
+<div class="codehilite"><pre><span></span># docker swarm init --advertise-addr eth0 &amp;&amp; \
+  git clone https://github.com/openfaas/faas &amp;&amp; \
+  cd faas &amp;&amp; \
+  git checkout 0.6.6-beta1 &amp;&amp; \
+  ./deploy_stack.sh &amp;&amp; \
+  docker service ls
+</pre></div>
+
+<p><em>The shell script makes use of a v3 docker-compose.yml file - read the <code>deploy_stack.sh</code> file for more details.</em></p>
+<blockquote>
+<p>If you are not testing on play-with-docker then remove <code>--advertise-addr eth0</code> from first line of the script.</p>
+</blockquote>
+<ul>
+<li>
+<p>Now that everything's deployed take note of the two ports at the top of the screen:</p>
+</li>
+<li>
+<p>8080 - the API Gateway and OpenFaaS UI</p>
+</li>
+<li>9090 - the Prometheus metrics endpoint</li>
+</ul>
+<p><img alt="" src="https://user-images.githubusercontent.com/6358735/31058899-b34f2108-a6f3-11e7-853c-6669ffacd320.jpg" /></p>
+<h2 id="install-faas-cli">Install FaaS-CLI<a class="headerlink" href="#install-faas-cli" title="Permanent link">&para;</a></h2>
+<p>We will also install the OpenFaaS CLI which can be used to create, list, invoke and remove functions.</p>
+<div class="codehilite"><pre><span></span>$ curl -sL cli.openfaas.com <span class="p">|</span> sh
+</pre></div>
+
+<p>On your own machine change <code>| sh</code> to <code>| sudo sh</code>, for MacOS you can just use <code>brew install faas-cli</code>.</p>
+<ul>
+<li>Find out what you can do</li>
+</ul>
+<div class="codehilite"><pre><span></span>$ faas-cli --help
+</pre></div>
+
+<h3 id="invoke-the-sample-functions-with-curl-or-postman">Invoke the sample functions with curl or Postman:<a class="headerlink" href="#invoke-the-sample-functions-with-curl-or-postman" title="Permanent link">&para;</a></h3>
+<p>Head over to the <a href="https://github.com/openfaas/faas">Github and Star the project</a>, or read on to see the input/output from the sample functions.</p>
+<h3 id="working-with-the-sample-functions">Working with the sample functions<a class="headerlink" href="#working-with-the-sample-functions" title="Permanent link">&para;</a></h3>
+<p>You can access the sample functions via the command line with a HTTP POST request, the FaaS-CLI or by using the built-in UI portal.</p>
+<ul>
+<li>Invoke the markdown function with the CLI:</li>
+</ul>
+<div class="codehilite"><pre><span></span>$ echo &quot;# Test *Drive*&quot;| faas-cli invoke func_markdown
+&lt;h1&gt;Test &lt;em&gt;Drive&lt;/em&gt;&lt;/h1&gt;
+</pre></div>
+
+<ul>
+<li>List your functions</li>
+</ul>
+<div class="codehilite"><pre><span></span>$ faas-cli list
+Function                        Invocations     Replicas
+func_echoit                     0               1
+func_base64                     0               1
+func_decodebase64               0               1
+func_markdown                   3               1
+func_nodeinfo                   0               1
+func_wordcount                  0               1
+func_hubstats                   0               1
+func_webhookstash               0               1
+</pre></div>
+
+<p><strong>UI portal:</strong></p>
+<p>The UI portal is accessible on: <a href="http://localhost:8080/">http://localhost:8080/</a> - it show a list of functions deployed on your swarm and allows you to test them out.</p>
+<p>View screenshot:</p>
+<p><a href="https://pbs.twimg.com/media/C3hDUkyWEAEgciP.jpg"><img src="https://pbs.twimg.com/media/C3hDUkyWEAEgciP.jpg" width="800"></img></a></p>
+<p>You can find out which services are deployed like this:</p>
+<div class="codehilite"><pre><span></span># docker stack ls
+NAME  SERVICES
+func  3
+
+# docker stack ps func
+ID            NAME               IMAGE                                  NODE  DESIRED STATE  CURRENT STATE         
+rhzej73haufd  func_gateway.1     alexellis2/faas-gateway:latest         moby  Running        Running 26 minutes ago
+fssz6unq3e74  func_hubstats.1    alexellis2/faas-dockerhubstats:latest  moby  Running        Running 27 minutes ago
+nnlzo6u3pilg  func_prometheus.1  quay.io/prometheus/prometheus:latest   moby  Running        Running 27 minutes ago
+</pre></div>
+
+<ul>
+<li>Head over to <a href="http://localhost:9090">http://localhost:9090</a> for your Prometheus metrics</li>
+<li>
+<p>A saved Prometheus view is available here: <a href="http://localhost:9090/graph?g0.range_input=15m&amp;g0.expr=rate(gateway_function_invocation_total%5B20s%5D)&amp;g0.tab=0&amp;g1.range_input=15m&amp;g1.expr=gateway_functions_seconds_sum+%2F+gateway_functions_seconds_counts&amp;g1.tab=0&amp;g2.range_input=15m&amp;g2.expr=gateway_service_count&amp;g2.tab=0">metrics overview</a></p>
+</li>
+<li>
+<p>Your functions can be accessed via the gateway UI or read on for <code>curl</code></p>
+</li>
+</ul>
+<h2 id="build-functions-from-templates-and-the-cli">Build functions from templates and the CLI<a class="headerlink" href="#build-functions-from-templates-and-the-cli" title="Permanent link">&para;</a></h2>
+<p>The following guides show how to use the CLI and code templates to build functions.</p>
+<p>Using a template means you only have to write a handler file in your chosen programming language such as:</p>
+<ul>
+<li>Ruby</li>
+<li>Node.js</li>
+<li>Python</li>
+<li>CSharp</li>
+<li>Or propose a template for another programming languae</li>
+</ul>
+<p>Guides:</p>
+<ul>
+<li>
+<p><a href="https://blog.alexellis.io/first-faas-python-function/">Your first serverless Python function with OpenFaaS</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@rorpage/your-first-serverless-net-function-with-openfaas-27573017dedb">Your first serverless .NET / C# function with OpenFaaS</a></p>
+</li>
+</ul>
+<h2 id="package-a-custom-docker-image">Package a custom Docker image<a class="headerlink" href="#package-a-custom-docker-image" title="Permanent link">&para;</a></h2>
+<p>Read the developer guide:</p>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/DEV.md">Packaging a function</a></li>
+</ul>
+<p>The original blog post also walks through creating a function:</p>
+<ul>
+<li><a href="http://blog.alexellis.io/functions-as-a-service/">FaaS blog post</a></li>
+</ul>
+<h2 id="add-new-functions-to-faas-at-runtime">Add new functions to FaaS at runtime<a class="headerlink" href="#add-new-functions-to-faas-at-runtime" title="Permanent link">&para;</a></h2>
+<p><strong>Option 1: via the FaaS CLI</strong></p>
+<p>The FaaS CLI can be used to build functions very quickly though the use of templates. See more details on the FaaS CLI <a href="https://github.com/openfaas/faas-cli">here</a>.</p>
+<p><strong>Option 2: via FaaS UI portal</strong></p>
+<p>To attach a function at runtime you can use the "Create New Function" button on the portal UI at <a href="http://localhost:8080/">http://localhost:8080/</a> </p>
+<p><a href="https://pbs.twimg.com/media/C8opW3RW0AAc9Th.jpg:large"><img src="https://pbs.twimg.com/media/C8opW3RW0AAc9Th.jpg:large" width="600"></img></a></p>
+<p>Creating a function via the UI:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Image</code></td>
+<td>The name of the image you want to use for the function. A good starting point is functions/alpine</td>
+</tr>
+<tr>
+<td><code>Service Name</code></td>
+<td>Describe the name of your service. The Service Name format is: [a-zA-Z_0-9]</td>
+</tr>
+<tr>
+<td><code>fProcess</code></td>
+<td>The process to invoke for each function call. This must be a UNIX binary and accept input via STDIN and output via STDOUT.</td>
+</tr>
+<tr>
+<td><code>Network</code></td>
+<td>The network <code>func_functions</code> is the default network.</td>
+</tr>
+</tbody>
+</table>
+<p>Once the create button is clicked, faas will provision a new Docker Swarm service. The newly created function will shortly be available in the list of functions on the left hand side of the UI.</p>
+<p><strong>Option 3: Through docker-compose.yml stack file</strong> </p>
+<p>Edit the docker-compose stack file, then run ./deploy_stack.sh - this will only update changed/added services, not existing ones.</p>
+<p><strong>Option 4: Programatically through a HTTP POST to the API Gateway</strong></p>
+<p>A HTTP post can also be sent via <code>curl</code> etc to the endpoint used by the UI (HTTP post to <code>/system/functions</code>)</p>
+<div class="codehilite"><pre><span></span>// CreateFunctionRequest create a function in the swarm.
+type CreateFunctionRequest struct {
+    Service    string `json:&quot;service&quot;`
+    Image      string `json:&quot;image&quot;`
+    Network    string `json:&quot;network&quot;`
+    EnvProcess string `json:&quot;envProcess&quot;`
+}
+</pre></div>
+
+<p>Example:</p>
+<p>For a quote-of-the-day type of application:</p>
+<div class="codehilite"><pre><span></span>curl localhost:8080/system/functions -d &#39;
+{&quot;service&quot;: &quot;oblique&quot;, &quot;image&quot;: &quot;vielmetti/faas-oblique&quot;, &quot;envProcess&quot;: &quot;/usr/bin/oblique&quot;, &quot;network&quot;: &quot;func_functions&quot;}&#39;
+</pre></div>
+
+<p>For a hashing algorithm:</p>
+<div class="codehilite"><pre><span></span>curl localhost:8080/system/functions -d &#39;
+{&quot;service&quot;: &quot;stronghash&quot;, &quot;image&quot;: &quot;functions/alpine&quot;, &quot;envProcess&quot;: &quot;sha512sum&quot;, &quot;network&quot;: &quot;func_functions&quot;}&#39;
+</pre></div>
+
+<h3 id="delete-a-function-at-runtime">Delete a function at runtime<a class="headerlink" href="#delete-a-function-at-runtime" title="Permanent link">&para;</a></h3>
+<p>You can delete a function through the FaaS-CLI or with the Docker CLI</p>
+<div class="codehilite"><pre><span></span>$ docker service rm func_echoit
+</pre></div>
+
+<h3 id="exploring-the-functions-with-curl">Exploring the functions with <code>curl</code><a class="headerlink" href="#exploring-the-functions-with-curl" title="Permanent link">&para;</a></h3>
+<p><strong>Sample function: Docker Hub Stats (hubstats)</strong></p>
+<div class="codehilite"><pre><span></span># curl -X POST http://localhost:8080/function/func_hubstats -d &quot;alexellis2&quot;
+The organisation or user alexellis2 has 99 repositories on the Docker hub.
+
+# curl -X POST http://localhost:8080/function/func_hubstats -d &quot;library&quot;
+The organisation or user library has 128 repositories on the Docker hub.
+</pre></div>
+
+<p>The <code>-d</code> value passes in the argument for your function. This is read via STDIN and used to query the Docker Hub to see how many images you've created/pushed.</p>
+<p><strong>Sample function: Node OS Info (nodeinfo)</strong></p>
+<p>Grab OS, CPU and other info via a Node.js container using the <code>os</code> module.</p>
+<p>If you invoke this method in a while loop or with a load-generator tool then it will auto-scale to 5, 10, 15 and finally 20 replicas due to the load. You will then be able to see the various Docker containers responding with a different Hostname for each request as the work is distributed evenly.</p>
+<p>Here is a loop that can be used to invoke the function in a loop to trigger auto-scaling.
+<div class="codehilite"><pre><span></span>while [ true ] ; do curl -X POST http://localhost:8080/function/func_nodeinfo -d &#39;&#39;; done
+</pre></div></p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span># curl -X POST http://localhost:8080/function/func_nodeinfo -d &#39;&#39;
+
+Hostname: 9b077a81a489
+
+Platform: linux
+Arch: arm
+CPU count: 1
+Uptime: 776839
+</pre></div>
+
+<p><strong>Sample function: webhook stasher (webhookstash)</strong></p>
+<p>Another cool sample function is the Webhook Stasher which saves the body of any data posted to the service to the container's filesystem. Each file is written with the filename of the UNIX time.</p>
+<div class="codehilite"><pre><span></span># curl -X POST http://localhost:8080/function/func_webhookstash -d &#39;{&quot;event&quot;: &quot;fork&quot;, &quot;repo&quot;: &quot;alexellis2/faas&quot;}&#39;
+Webhook stashed
+
+# docker ps|grep stash
+d769ca70729d        alexellis2/faas-webhookstash@sha256:b378f1a144202baa8fb008f2c8896f5a8
+
+# docker exec d769ca70729d find .
+.
+./1483999546817280727.txt
+./1483999702130689245.txt
+./1483999702533419188.txt
+./1483999702978454621.txt
+./1483999703284879767.txt
+./1483999719981227578.txt
+./1483999720296180414.txt
+./1483999720666705381.txt
+./1483999720961054638.txt
+</pre></div>
+
+<blockquote>
+<p>Why not start the code on play-with-docker.com and then configure a Github repository to send webhooks to the API Gateway?</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="./" title="Part 4 - Create a Function" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Part 4 - Create a Function
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../architecture/" title="Architecture" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Architecture
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 OpenFaaS Project
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://www.openfaas.com/" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/openfaas/faas" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/openfaas" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
