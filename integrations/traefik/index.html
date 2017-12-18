@@ -898,7 +898,7 @@ characters, so if the password contains a <code>$</code>, you can escape it by
 doubling up <code>$$</code> just like the above.</p>
 <h4 id="re-deploy-openfaas">Re-Deploy OpenFaaS<a class="headerlink" href="#re-deploy-openfaas" title="Permanent link">&para;</a></h4>
 <p>Redeploy OpenFaaS to update the service with the new changes.
-<div class="codehilite"><pre><span></span>$ ./deploy_stack.yml
+<div class="codehilite"><pre><span></span>$ ./deploy_stack.sh
 </pre></div></p>
 <h4 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h4>
 <p><div class="codehilite"><pre><span></span>$ curl -u user:password -X POST http://localhost/function/func_echoit -d &quot;hello OpenFaaS&quot;

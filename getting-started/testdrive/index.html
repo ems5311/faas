@@ -1310,6 +1310,12 @@ CPU count: 1
 Uptime: 776839
 </pre></div>
 
+<p>To control scaling behaviour you can set a min/max scale value with a label when deploying your function via the CLI or the API:</p>
+<div class="codehilite"><pre><span></span>  labels:
+    &quot;com.openfaas.scale.min&quot;: &quot;5&quot;
+    &quot;com.openfaas.scale.max&quot;: &quot;15&quot;
+</pre></div>
+
 <p><strong>Sample function: webhook stasher (webhookstash)</strong></p>
 <p>Another cool sample function is the Webhook Stasher which saves the body of any data posted to the service to the container's filesystem. Each file is written with the filename of the UNIX time.</p>
 <div class="codehilite"><pre><span></span># curl -X POST http://localhost:8080/function/func_webhookstash -d &#39;{&quot;event&quot;: &quot;fork&quot;, &quot;repo&quot;: &quot;alexellis2/faas&quot;}&#39;
