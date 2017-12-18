@@ -882,8 +882,103 @@
         }, 
         {
             "location": "/contributing/", 
-            "text": "", 
+            "text": "Contributing\n\n\nAnyone is invited to contribute to the project in-line with the \ncontribution guide\n.\n\n\nPlease read the guide for ideas on how to get involved. We also invite new contributors to join our Slack community. We would also ask you to propose any changes or contributions ahead of time, especially when there is no issue or proposal alredy tracking it.\n\n\nGuidelines\n\n\nHow can I get involved?\n\n\nFirst of all, we'd love to welcome you into our Slack community where we exchange ideas, ask questions and chat about OpenFaaS, Raspberry Pi and other cloud-native technology. (\nSee below for how to join\n)\n\n\nWe have a number of areas where we can accept contributions:\n\n\n\n\nWrite Golang code for the CLI, Gateway or other providers\n\n\nWrite for our front-end UI (JS, HTML, CSS)\n\n\nWrite sample functions in any language\n\n\nReview pull requests\n\n\nTest out new features or work-in-progress\n\n\nGet involved in design reviews and technical proof-of-concepts (PoCs)\n\n\nHelp us release and package OpenFaaS including the helm chart, compose files, kubectl YAML, marketplaces and stores\n\n\nManage, triage and research Issues and Pull Requests\n\n\nHelp our growing community feel at home\n\n\nCreate docs, guides and write blogs\n\n\nSpeak at meet-ups, conferences or by helping folks with OpenFaaS on Slack\n\n\n\n\nThis is just a short list of ideas, if you have other ideas for contributing please make a suggestion.\n\n\nI've found a typo\n\n\n\n\nA Pull Request is not necessary. Raise an \nIssue\n and we'll fix it as soon as we can. \n\n\n\n\nI have a [great] idea\n\n\nThe OpenFaaS maintainers would like to make OpenFaaS the best it can be and welcome new contributions that align with the project's goals. Our time is limited so we'd like to make sure we agree on the proposed work before you spend time doing it. Saying \"no\" is hard which is why we'd rather say \"yes\" ahead of time.\n\n\nPlease do not raise a proposal after doing the work - this is counter to the spirit of the project and we find it's easier to be objective that way\n\n\nWhat makes a good proposal?\n\n\n\n\nBrief summary including motivation/context\n\n\nAny design changes\n\n\nPros + Cons\n\n\nEffort required\n\n\nMigration strategy / backwards-compatibility\n\n\nMock-up screenshots or examples of how the CLI would work\n\n\n\n\nIf you are proposing a new tool or service please do due diligence. Does this tool already exist? Can we reuse it? For example: a timer / CRON-type scheduler for invoking functions. \n\n\nPaperwork for Pull Requests\n\n\nPlease read this whole guide and make sure you agree to our DCO agreement (included below):\n\n\n\n\nSign-off your commits \n\n\nComplete the whole template for issues and pull requests\n\n\nReference addressed issues\n in the PR description \n commit messages - use 'Fixes #IssueNo' \n\n\nAlways give instructions for testing\n\n\nProvide us CLI commands and output or screenshots where you can \n\n\n\n\nUnit testing with Golang\n\n\nPlease follow style guide on \nthis blog post\n from \nThe Go Programming Language\n\n\nI have a question, a suggestion or need help\n\n\nPlease raise an Issue or email \n for an invitation to our Slack community.\n\n\nI need to add a dependency\n\n\nWe are using the \nvndr\n tool across all projects. Get \nstarted here\n.\n\n\nHow do I become a maintainer?\n\n\nMaintainers are well-known contributors who help with:\n* Fixing, testing and triaging issues\n* Joining contributor meetings and supporting new contributors\n* Testing and reviewing pull requests\n* Offering other project support and strategical advice\n\n\nVarying levels of write access are made available via our project bot \nDerek\n to help regular contributors transition to maintainers.\n\n\nHow do I work with Derek the bot?**\n\n\nIf you have been added to the MAINTAINERS file in the root of an OpenFaaS repository then you can help us manage our community and contributions by issuing comments on Issues and Pull Requests. See \nDerek\n for available commands.\n\n\nGovernance\n\n\nOpenFaaS is an independent project created by Alex Ellis which is now being built by a growing community of contributors.\n\n\nCommunity\n\n\nThis project is written in Golang but many of the community contributions so far have been through blogging, speaking engagements, helping to test and drive the backlog of FaaS. If you'd like to help in any way then that would be more than welcome whatever your level of experience.\n\n\nCommunity file\n\n\nThe \ncommunity.md\n file highlights blogs, talks and code repos with example FaaS functions and usages. Please send a Pull Request if you are doing something cool with FaaS.\n\n\nRoadmap\n\n\nCheckout the \nroadmap\n and \nopen issues\n.\n\n\nSlack\n\n\nThere is an Slack community which you are welcome to join to discuss FaaS, IoT and Raspberry Pi projects. Ping \nAlex Ellis\n with your email address so that an invite can be sent out.\n\n\nEmail: \n - please send in a one-liner about yourself so we can give you a warm welcome and help you get started.\n\n\nLicense\n\n\nThe OpenFaaS Project is licensed under the \nMIT License\n.\n\n\nSign your work\n\n\nCopyright notice\n\n\nPlease add a Copyright notice to new files you add where this is not already present:\n\n\n// Copyright (c) OpenFaaS Project 2017. All rights reserved.\n// Licensed under the MIT license. See LICENSE file in the project root for full license information.\n\n\n\n\n\n\nTldr\n\n\nAll of the commits in your PR/Patch must be signed-off.\n\n\n\n\nThe sign-off is a simple line at the end of the explanation for a patch. Your signature certifies that you wrote the patch or otherwise have the right to pass it on as an open-source patch.\n\n\nThe rules are pretty simple: if you can satisfy the below declaration (from \ndevelopercertificate.org\n):\n\n\nDeveloper Certificate of Origin\nVersion 1.1\n\nCopyright (C) 2004, 2006 The Linux Foundation and its contributors.\n1 Letterman Drive\nSuite D4700\nSan Francisco, CA, 94129\n\nEveryone is permitted to copy and distribute verbatim copies of this\nlicense document, but changing it is not allowed.\n\nDeveloper\ns Certificate of Origin 1.1\n\nBy making a contribution to this project, I certify that:\n\n(a) The contribution was created in whole or in part by me and I\n    have the right to submit it under the open source license\n    indicated in the file; or\n\n(b) The contribution is based upon previous work that, to the best\n    of my knowledge, is covered under an appropriate open source\n    license and I have the right under that license to submit that\n    work with modifications, whether created in whole or in part\n    by me, under the same open source license (unless I am\n    permitted to submit under a different license), as indicated\n    in the file; or\n\n(c) The contribution was provided directly to me by some other\n    person who certified (a), (b) or (c) and I have not modified\n    it.\n\n(d) I understand and agree that this project and the contribution\n    are public and that a record of the contribution (including all\n    personal information I submit with it, including my sign-off) is\n    maintained indefinitely and may be redistributed consistent with\n    this project or the open source license(s) involved.\n\n\n\n\nHow to sign commits\n\n\nAdd a line to every git commit message:\n\n\nSigned-off-by: Joe Smith \njoe.smith@email.com\n\n\n\n\n\n\nUse your real name (sorry, no pseudonyms or anonymous contributions.)\n\n\nIf you set your \nuser.name\n and \nuser.email\n git configs, you can sign your\ncommit automatically with \ngit commit -s\n.\n\n\n\n\nNote\n\n\nPlease sign your commits with \ngit commit -s\n so that commits are traceable.", 
             "title": "Contributing"
+        }, 
+        {
+            "location": "/contributing/#contributing", 
+            "text": "Anyone is invited to contribute to the project in-line with the  contribution guide .  Please read the guide for ideas on how to get involved. We also invite new contributors to join our Slack community. We would also ask you to propose any changes or contributions ahead of time, especially when there is no issue or proposal alredy tracking it.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/contributing/#guidelines", 
+            "text": "", 
+            "title": "Guidelines"
+        }, 
+        {
+            "location": "/contributing/#how-can-i-get-involved", 
+            "text": "First of all, we'd love to welcome you into our Slack community where we exchange ideas, ask questions and chat about OpenFaaS, Raspberry Pi and other cloud-native technology. ( See below for how to join )  We have a number of areas where we can accept contributions:   Write Golang code for the CLI, Gateway or other providers  Write for our front-end UI (JS, HTML, CSS)  Write sample functions in any language  Review pull requests  Test out new features or work-in-progress  Get involved in design reviews and technical proof-of-concepts (PoCs)  Help us release and package OpenFaaS including the helm chart, compose files, kubectl YAML, marketplaces and stores  Manage, triage and research Issues and Pull Requests  Help our growing community feel at home  Create docs, guides and write blogs  Speak at meet-ups, conferences or by helping folks with OpenFaaS on Slack   This is just a short list of ideas, if you have other ideas for contributing please make a suggestion.", 
+            "title": "How can I get involved?"
+        }, 
+        {
+            "location": "/contributing/#ive-found-a-typo", 
+            "text": "A Pull Request is not necessary. Raise an  Issue  and we'll fix it as soon as we can.", 
+            "title": "I've found a typo"
+        }, 
+        {
+            "location": "/contributing/#i-have-a-great-idea", 
+            "text": "The OpenFaaS maintainers would like to make OpenFaaS the best it can be and welcome new contributions that align with the project's goals. Our time is limited so we'd like to make sure we agree on the proposed work before you spend time doing it. Saying \"no\" is hard which is why we'd rather say \"yes\" ahead of time.  Please do not raise a proposal after doing the work - this is counter to the spirit of the project and we find it's easier to be objective that way  What makes a good proposal?   Brief summary including motivation/context  Any design changes  Pros + Cons  Effort required  Migration strategy / backwards-compatibility  Mock-up screenshots or examples of how the CLI would work   If you are proposing a new tool or service please do due diligence. Does this tool already exist? Can we reuse it? For example: a timer / CRON-type scheduler for invoking functions.   Paperwork for Pull Requests  Please read this whole guide and make sure you agree to our DCO agreement (included below):   Sign-off your commits   Complete the whole template for issues and pull requests  Reference addressed issues  in the PR description   commit messages - use 'Fixes #IssueNo'   Always give instructions for testing  Provide us CLI commands and output or screenshots where you can", 
+            "title": "I have a [great] idea"
+        }, 
+        {
+            "location": "/contributing/#unit-testing-with-golang", 
+            "text": "Please follow style guide on  this blog post  from  The Go Programming Language", 
+            "title": "Unit testing with Golang"
+        }, 
+        {
+            "location": "/contributing/#i-have-a-question-a-suggestion-or-need-help", 
+            "text": "Please raise an Issue or email   for an invitation to our Slack community.", 
+            "title": "I have a question, a suggestion or need help"
+        }, 
+        {
+            "location": "/contributing/#i-need-to-add-a-dependency", 
+            "text": "We are using the  vndr  tool across all projects. Get  started here .", 
+            "title": "I need to add a dependency"
+        }, 
+        {
+            "location": "/contributing/#how-do-i-become-a-maintainer", 
+            "text": "Maintainers are well-known contributors who help with:\n* Fixing, testing and triaging issues\n* Joining contributor meetings and supporting new contributors\n* Testing and reviewing pull requests\n* Offering other project support and strategical advice  Varying levels of write access are made available via our project bot  Derek  to help regular contributors transition to maintainers.", 
+            "title": "How do I become a maintainer?"
+        }, 
+        {
+            "location": "/contributing/#how-do-i-work-with-derek-the-bot", 
+            "text": "If you have been added to the MAINTAINERS file in the root of an OpenFaaS repository then you can help us manage our community and contributions by issuing comments on Issues and Pull Requests. See  Derek  for available commands.", 
+            "title": "How do I work with Derek the bot?**"
+        }, 
+        {
+            "location": "/contributing/#governance", 
+            "text": "OpenFaaS is an independent project created by Alex Ellis which is now being built by a growing community of contributors.", 
+            "title": "Governance"
+        }, 
+        {
+            "location": "/contributing/#community", 
+            "text": "This project is written in Golang but many of the community contributions so far have been through blogging, speaking engagements, helping to test and drive the backlog of FaaS. If you'd like to help in any way then that would be more than welcome whatever your level of experience.", 
+            "title": "Community"
+        }, 
+        {
+            "location": "/contributing/#community-file", 
+            "text": "The  community.md  file highlights blogs, talks and code repos with example FaaS functions and usages. Please send a Pull Request if you are doing something cool with FaaS.", 
+            "title": "Community file"
+        }, 
+        {
+            "location": "/contributing/#roadmap", 
+            "text": "Checkout the  roadmap  and  open issues .", 
+            "title": "Roadmap"
+        }, 
+        {
+            "location": "/contributing/#slack", 
+            "text": "There is an Slack community which you are welcome to join to discuss FaaS, IoT and Raspberry Pi projects. Ping  Alex Ellis  with your email address so that an invite can be sent out.  Email:   - please send in a one-liner about yourself so we can give you a warm welcome and help you get started.", 
+            "title": "Slack"
+        }, 
+        {
+            "location": "/contributing/#license", 
+            "text": "The OpenFaaS Project is licensed under the  MIT License .", 
+            "title": "License"
+        }, 
+        {
+            "location": "/contributing/#sign-your-work", 
+            "text": "", 
+            "title": "Sign your work"
+        }, 
+        {
+            "location": "/contributing/#copyright-notice", 
+            "text": "Please add a Copyright notice to new files you add where this is not already present:  // Copyright (c) OpenFaaS Project 2017. All rights reserved.\n// Licensed under the MIT license. See LICENSE file in the project root for full license information.   Tldr  All of the commits in your PR/Patch must be signed-off.   The sign-off is a simple line at the end of the explanation for a patch. Your signature certifies that you wrote the patch or otherwise have the right to pass it on as an open-source patch.  The rules are pretty simple: if you can satisfy the below declaration (from  developercertificate.org ):  Developer Certificate of Origin\nVersion 1.1\n\nCopyright (C) 2004, 2006 The Linux Foundation and its contributors.\n1 Letterman Drive\nSuite D4700\nSan Francisco, CA, 94129\n\nEveryone is permitted to copy and distribute verbatim copies of this\nlicense document, but changing it is not allowed.\n\nDeveloper s Certificate of Origin 1.1\n\nBy making a contribution to this project, I certify that:\n\n(a) The contribution was created in whole or in part by me and I\n    have the right to submit it under the open source license\n    indicated in the file; or\n\n(b) The contribution is based upon previous work that, to the best\n    of my knowledge, is covered under an appropriate open source\n    license and I have the right under that license to submit that\n    work with modifications, whether created in whole or in part\n    by me, under the same open source license (unless I am\n    permitted to submit under a different license), as indicated\n    in the file; or\n\n(c) The contribution was provided directly to me by some other\n    person who certified (a), (b) or (c) and I have not modified\n    it.\n\n(d) I understand and agree that this project and the contribution\n    are public and that a record of the contribution (including all\n    personal information I submit with it, including my sign-off) is\n    maintained indefinitely and may be redistributed consistent with\n    this project or the open source license(s) involved.", 
+            "title": "Copyright notice"
+        }, 
+        {
+            "location": "/contributing/#how-to-sign-commits", 
+            "text": "Add a line to every git commit message:  Signed-off-by: Joe Smith  joe.smith@email.com   Use your real name (sorry, no pseudonyms or anonymous contributions.)  If you set your  user.name  and  user.email  git configs, you can sign your\ncommit automatically with  git commit -s .   Note  Please sign your commits with  git commit -s  so that commits are traceable.", 
+            "title": "How to sign commits"
         }
     ]
 }
