@@ -543,13 +543,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-async-stack" title="Deploy the async stack" class="md-nav__link">
-    Deploy the async stack
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#call-a-function" title="Call a function" class="md-nav__link">
     Call a function
   </a>
@@ -672,13 +665,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-async-stack" title="Deploy the async stack" class="md-nav__link">
-    Deploy the async stack
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#call-a-function" title="Call a function" class="md-nav__link">
     Call a function
   </a>
@@ -779,17 +765,10 @@
 <p><img width="1440" alt="screen shot 2017-10-26 at 15 55 19" src="https://user-images.githubusercontent.com/6358735/32060206-047eb75c-ba66-11e7-94d3-1343ea1811db.png"></p>
 <p>You can also use asynchronous calls with a callback URL</p>
 <p><img width="1440" alt="screen shot 2017-10-26 at 15 55 06" src="https://user-images.githubusercontent.com/6358735/32060205-04545692-ba66-11e7-9e6d-b800a07b9bf5.png"></p>
-<h2 id="deploy-the-async-stack">Deploy the async stack<a class="headerlink" href="#deploy-the-async-stack" title="Permanent link">&para;</a></h2>
 <p>The reference implementation for asychronous processing uses NATS Streaming, but you are free to extend OpenFaaS and write your own <a href="https://github.com/open-faas/nats-queue-worker">queue-worker</a>.</p>
-<p>Swarm:</p>
-<div class="codehilite"><pre><span></span>$ ./deploy_extended.sh
-</pre></div>
-
-<p>K8s:</p>
-<div class="codehilite"><pre><span></span>$ kubectl delete -f ./faas.yml
-$ kubectl apply -f./faas.async.yml,nats.yml
-</pre></div>
-
+<blockquote>
+<p>The asynchronous stack is now built-in by default. Previously it was an optional configuration.</p>
+</blockquote>
 <h2 id="call-a-function">Call a function<a class="headerlink" href="#call-a-function" title="Permanent link">&para;</a></h2>
 <p>Functions do not need to be modified to work asynchronously, just use this alternate route:</p>
 <div class="codehilite"><pre><span></span>http://gateway:8080/async-function/{function_name}
