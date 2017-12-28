@@ -2,18 +2,23 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to OpenFaaS\n\n\n\n\nOpenFaaS (Functions as a Service) is a framework for building serverless functions with Docker which has first class support for metrics. Any process can be packaged as a function enabling you to consume a range of web events without repetitive boiler-plate coding.\n\n\nHighlights\n\n\n\n\nEase of use through UI portal and \none-click\n install\n\n\nWrite functions in any language for Linux or Windows and package in Docker/OCI image format\n\n\nPortable - runs on existing hardware or public/private cloud - \nKubernetes\n and Docker Swarm native\n\n\nCLI\n available with YAML format for templating and defining functions and featuring easy install via curl and brew\n\n\nAuto-scales as demand increases\n\n\nNew:\n Kubernetes support via \nFaaS-netes\n plugin\n\n\nNew:\n Windows function support\n\n\nNew:\n Asynchronous/long-running OpenFaaS functions via \nNATS Streaming\n - \nFollow this guide\n\n\n\n\nGovernance\n\n\nOpenFaaS is an independent project created by \nAlex Ellis\n which is now being built and shaped by a growing community of contributors. Project website: \nopenfaas.com\n.\n\n\nBackground\n\n\nThis is the original blog post from \n@alexellis\n on FaaS from January.\n\n\n\n\nFunctions as a Service blog post\n\n\n\n\nVideos\n\n\nSkillsMatter\n\n\nGreat introductory overview of OpenFaaS features, users and roadmap.\n\n\n\n\nHD Video\n\n\n\n\nOpenFaaS presents to CNCF Serverless workgroup\n\n\nThe OpenFaaS project had the pleasure of presenting OpenFaaS to the CNCF Serverless Workgroup.\n\n\n\n\nVideo and blog post\n\n\n\n\nDockercon 2017 Closing Keynote\n\n\nFunctions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.\n\n\n\n\nWatch Alex Ellis's OpenFaaS Keynote at Dockercon 2017\n\n\n\n\nIf you'd like to find the functions I used in the demos head over to the \nfaas-dockercon\n repository.", 
+            "text": "OpenFaaS - Serverless Functions Made Simple\n\n\n \n \n \n\n\n\n\n\n\nOpenFaaS (Functions as a Service) is a framework for building serverless functions with Docker and Kubernetes which has first class support for metrics. Any process can be packaged as a function enabling you to consume a range of web events without repetitive boiler-plate coding.\n\n\n\n\nHighlights\n\n\n\n\nEase of use through UI portal and \none-click\n install\n\n\nWrite functions in any language for Linux or Windows and package in Docker/OCI image format\n\n\nPortable - runs on existing hardware or public/private cloud - \nKubernetes\n and Docker Swarm native\n\n\nCLI\n available with YAML format for templating and defining functions\n\n\nAuto-scales as demand increases\n\n\n\n\nNew: become an OpenFaaS backer or sponsor\n\n\nWe need your support to keep delivering on Serverless Functions Made Simple so pledge to OpenFaaS and \nbecome a backer or a sponsor\n with a unique set of rewards. Help us hit our goals and get to back a great project at the same time.\n\n\nView the \nList of backers and sponsors\n\n\nPress-kit/media/swag\n\n\nFor stickers, swag, media or press-kit information head over to \nopenfaas/media\n\n\nGovernance\n\n\nOpenFaaS is an independent project created by \nAlex Ellis\n which is now being built and shaped by a growing community of contributors. Project website: \nopenfaas.com\n.\n\n\nOverview of OpenFaaS\n\n\n\n\nServerless Functions Made Simple.\n\n\n\n\n\n\nFunction Watchdog\n\n\n\n\nYou can make any Docker image into a serverless function by adding the \nFunction Watchdog\n (a tiny Golang HTTP server)\n\n\nThe \nFunction Watchdog\n is the entrypoint allowing HTTP requests to be forwarded to the target process via STDIN. The response is sent back to the caller by writing to STDOUT from your application.\n\n\n\n\nAPI Gateway / UI Portal\n\n\n\n\nThe API Gateway provides an external route into your functions and collects Cloud Native metrics through Prometheus.\n\n\nYour API Gateway will scale functions according to demand by altering the service replica count in the Docker Swarm or Kubernetes API.\n\n\nA UI is baked in allowing you to invoke functions in your browser and create new ones as needed.\n\n\n\n\n\n\nThe API Gateway is a RESTful micro-service and you can view the \nSwagger docs here\n.\n\n\n\n\nCLI\n\n\nAny container or process in a Docker container can be a serverless function in FaaS. Using the \nFaaS CLI\n you can deploy your functions quickly.\n\n\nCreate new functions from templates for Node.js, Python, \nGo\n and many more. If you can't find a suitable template you can also use a Dockerfile.\n\n\n\n\nThe CLI is effectively a RESTful client for the API Gateway.\n\n\n\n\nWhen you have OpenFaaS configured you can \nget started with the CLI here\n\n\nFunction examples\n\n\nYou can generate new functions using the FaaS-CLI and built-in templates or use any binary for Windows or Linux in a Docker container.\n\n\n\n\nPython example:\n\n\n\n\nimport\n \nrequests\n\n\n\ndef\n \nhandle\n(\nreq\n):\n\n        \nr\n \n=\n  \nrequests\n.\nget\n(\nreq\n,\n \ntimeout\n \n=\n \n1\n)\n\n        \nprint\n(\nreq\n \n+\n =\n \n \n+\n \nstr\n(\nr\n.\nstatus_code\n))\n\n\n\n\nhandler.py\n\n\n\n\nNode.js example:\n\n\n\n\nuse strict\n\n\n\nmodule\n.\nexports\n \n=\n \n(\ncallback\n,\n \ncontext\n)\n \n=\n \n{\n\n    \ncallback\n(\nnull\n,\n \n{\nmessage\n:\n \nYou said: \n \n+\n \ncontext\n})\n\n\n}\n\n\n\n\nhandler.js\n\n\nOther \nSample functions\n are available in the Github repository in a range of programming languages.\n\n\nDocumentation\n\n\nView our guides\n for documentation, deployment guides and tutorials.\n\n\nGet started with OpenFaaS\n\n\nTestDrive\n\n\nDocker Swarm\n\n\nThe deployment guide for Docker Swarm contains a simple one-line command to get you up and running in around 60 seconds. It also includes a set of \nsample functions\n which you can use with the TestDrive instructions below.\n\n\nDeployment guide for Docker Swarm\n\n\nKubernetes\n\n\nOpenFaaS is Kubernetes-native - you can follow the \ndeployment guide here\n.\n\n\n\n\n\nBegin the TestDrive\n\n\n\n\nBegin the TestDrive with Docker Swarm\n\n\n\n\nHere is a screenshot of the API gateway portal - designed for ease of use.\n\n\n\n\nFind out more about OpenFaaS\n\n\nSkillsMatter video presentation\n\n\nGreat overview of OpenFaaS features, users and roadmap\n\n\n\n\nHD Video\n\n\n\n\nOpenFaaS presents to CNCF Serverless workgroup\n\n\n\n\nVideo and blog post\n\n\n\n\nClosing Keynote at Dockercon 2017\n\n\nFunctions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.\n\n\n\n\nWatch my FaaS keynote at Dockercon 2017\n\n\n\n\nIf you'd like to find the functions I used in the demos head over to the \nfaas-dockercon\n repository.\n\n\nBackground story\n\n\nThis is my original blog post on FaaS from January: \nFunctions as a Service blog post\n\n\nCommunity\n\n\nHave you written a blog about OpenFaaS? Send a Pull Request to the community page below.\n\n\n\n\nRead blogs/articles and find events about OpenFaaS\n\n\n\n\nIf you'd like to join OpenFaaS community Slack channel to chat with contributors or get some help - then send a Tweet to \n@alexellisuk\n or email \n.\n\n\nRoadmap and contributing\n\n\nOpenFaaS is written in Golang and is MIT licensed - contributions are welcomed whether that means providing feedback, testing existing and new feature or hacking on the source.\n\n\nTo get started you can read the \nroadmap\n and \ncontribution guide\n or:\n\n\n\n\nBrowse FaaS issues on Github\n.\n\n\nBrowse FaaS-CLI issues on Github\n.\n\n\n\n\nHighlights:\n\n\n\n\nNew: Kubernetes support via \nFaaS-netes\n plugin\n\n\nNew: FaaS CLI and easy install via \ncurl\n and \nbrew\n\n\nNew: Windows function support\n\n\nNew: Asynchronous/long-running OpenFaaS functions via \nNATS Streaming\n - \nFollow this guide\n\n\n\n\nHow do I become a contributor?\n\n\nAnyone is invited to contribute to the project in-line with the \ncontribution guide\n - you can also read the guide for ideas on how to get involved. We invite new contributors to join our Slack community. We would also ask you to propose any changes or contributions ahead of time, especially when there is no issue or proposal already tracking it.\n\n\nOther\n\n\nExample of a Grafana dashboards linked to OpenFaaS showing auto-scaling live in action: \nhere\n\n\n\n\nAn alternative community dashboard is \navailable here", 
             "title": "Overview"
         }, 
         {
-            "location": "/#welcome-to-openfaas", 
-            "text": "OpenFaaS (Functions as a Service) is a framework for building serverless functions with Docker which has first class support for metrics. Any process can be packaged as a function enabling you to consume a range of web events without repetitive boiler-plate coding.", 
-            "title": "Welcome to OpenFaaS"
+            "location": "/#openfaas-serverless-functions-made-simple", 
+            "text": "OpenFaaS (Functions as a Service) is a framework for building serverless functions with Docker and Kubernetes which has first class support for metrics. Any process can be packaged as a function enabling you to consume a range of web events without repetitive boiler-plate coding.   Highlights   Ease of use through UI portal and  one-click  install  Write functions in any language for Linux or Windows and package in Docker/OCI image format  Portable - runs on existing hardware or public/private cloud -  Kubernetes  and Docker Swarm native  CLI  available with YAML format for templating and defining functions  Auto-scales as demand increases", 
+            "title": "OpenFaaS - Serverless Functions Made Simple"
         }, 
         {
-            "location": "/#highlights", 
-            "text": "Ease of use through UI portal and  one-click  install  Write functions in any language for Linux or Windows and package in Docker/OCI image format  Portable - runs on existing hardware or public/private cloud -  Kubernetes  and Docker Swarm native  CLI  available with YAML format for templating and defining functions and featuring easy install via curl and brew  Auto-scales as demand increases  New:  Kubernetes support via  FaaS-netes  plugin  New:  Windows function support  New:  Asynchronous/long-running OpenFaaS functions via  NATS Streaming  -  Follow this guide", 
-            "title": "Highlights"
+            "location": "/#new-become-an-openfaas-backer-or-sponsor", 
+            "text": "We need your support to keep delivering on Serverless Functions Made Simple so pledge to OpenFaaS and  become a backer or a sponsor  with a unique set of rewards. Help us hit our goals and get to back a great project at the same time.  View the  List of backers and sponsors", 
+            "title": "New: become an OpenFaaS backer or sponsor"
+        }, 
+        {
+            "location": "/#press-kitmediaswag", 
+            "text": "For stickers, swag, media or press-kit information head over to  openfaas/media", 
+            "title": "Press-kit/media/swag"
         }, 
         {
             "location": "/#governance", 
@@ -21,29 +26,89 @@
             "title": "Governance"
         }, 
         {
-            "location": "/#background", 
-            "text": "This is the original blog post from  @alexellis  on FaaS from January.   Functions as a Service blog post", 
-            "title": "Background"
+            "location": "/#overview-of-openfaas", 
+            "text": "Serverless Functions Made Simple.", 
+            "title": "Overview of OpenFaaS"
         }, 
         {
-            "location": "/#videos", 
+            "location": "/#function-watchdog", 
+            "text": "You can make any Docker image into a serverless function by adding the  Function Watchdog  (a tiny Golang HTTP server)  The  Function Watchdog  is the entrypoint allowing HTTP requests to be forwarded to the target process via STDIN. The response is sent back to the caller by writing to STDOUT from your application.", 
+            "title": "Function Watchdog"
+        }, 
+        {
+            "location": "/#api-gateway-ui-portal", 
+            "text": "The API Gateway provides an external route into your functions and collects Cloud Native metrics through Prometheus.  Your API Gateway will scale functions according to demand by altering the service replica count in the Docker Swarm or Kubernetes API.  A UI is baked in allowing you to invoke functions in your browser and create new ones as needed.    The API Gateway is a RESTful micro-service and you can view the  Swagger docs here .", 
+            "title": "API Gateway / UI Portal"
+        }, 
+        {
+            "location": "/#cli", 
+            "text": "Any container or process in a Docker container can be a serverless function in FaaS. Using the  FaaS CLI  you can deploy your functions quickly.  Create new functions from templates for Node.js, Python,  Go  and many more. If you can't find a suitable template you can also use a Dockerfile.   The CLI is effectively a RESTful client for the API Gateway.   When you have OpenFaaS configured you can  get started with the CLI here", 
+            "title": "CLI"
+        }, 
+        {
+            "location": "/#function-examples", 
+            "text": "You can generate new functions using the FaaS-CLI and built-in templates or use any binary for Windows or Linux in a Docker container.   Python example:   import   requests  def   handle ( req ): \n         r   =    requests . get ( req ,   timeout   =   1 ) \n         print ( req   +  =     +   str ( r . status_code ))   handler.py   Node.js example:   use strict  module . exports   =   ( callback ,   context )   =   { \n     callback ( null ,   { message :   You said:    +   context })  }   handler.js  Other  Sample functions  are available in the Github repository in a range of programming languages.", 
+            "title": "Function examples"
+        }, 
+        {
+            "location": "/#documentation", 
+            "text": "View our guides  for documentation, deployment guides and tutorials.", 
+            "title": "Documentation"
+        }, 
+        {
+            "location": "/#get-started-with-openfaas", 
             "text": "", 
-            "title": "Videos"
+            "title": "Get started with OpenFaaS"
         }, 
         {
-            "location": "/#skillsmatter", 
-            "text": "Great introductory overview of OpenFaaS features, users and roadmap.   HD Video", 
-            "title": "SkillsMatter"
+            "location": "/#testdrive", 
+            "text": "Docker Swarm  The deployment guide for Docker Swarm contains a simple one-line command to get you up and running in around 60 seconds. It also includes a set of  sample functions  which you can use with the TestDrive instructions below.  Deployment guide for Docker Swarm  Kubernetes  OpenFaaS is Kubernetes-native - you can follow the  deployment guide here .", 
+            "title": "TestDrive"
+        }, 
+        {
+            "location": "/#begin-the-testdrive", 
+            "text": "Begin the TestDrive with Docker Swarm   Here is a screenshot of the API gateway portal - designed for ease of use.", 
+            "title": "Begin the TestDrive"
+        }, 
+        {
+            "location": "/#find-out-more-about-openfaas", 
+            "text": "", 
+            "title": "Find out more about OpenFaaS"
+        }, 
+        {
+            "location": "/#skillsmatter-video-presentation", 
+            "text": "Great overview of OpenFaaS features, users and roadmap   HD Video", 
+            "title": "SkillsMatter video presentation"
         }, 
         {
             "location": "/#openfaas-presents-to-cncf-serverless-workgroup", 
-            "text": "The OpenFaaS project had the pleasure of presenting OpenFaaS to the CNCF Serverless Workgroup.   Video and blog post", 
+            "text": "Video and blog post", 
             "title": "OpenFaaS presents to CNCF Serverless workgroup"
         }, 
         {
-            "location": "/#dockercon-2017-closing-keynote", 
-            "text": "Functions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.   Watch Alex Ellis's OpenFaaS Keynote at Dockercon 2017   If you'd like to find the functions I used in the demos head over to the  faas-dockercon  repository.", 
-            "title": "Dockercon 2017 Closing Keynote"
+            "location": "/#closing-keynote-at-dockercon-2017", 
+            "text": "Functions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.   Watch my FaaS keynote at Dockercon 2017   If you'd like to find the functions I used in the demos head over to the  faas-dockercon  repository.  Background story  This is my original blog post on FaaS from January:  Functions as a Service blog post", 
+            "title": "Closing Keynote at Dockercon 2017"
+        }, 
+        {
+            "location": "/#community", 
+            "text": "Have you written a blog about OpenFaaS? Send a Pull Request to the community page below.   Read blogs/articles and find events about OpenFaaS   If you'd like to join OpenFaaS community Slack channel to chat with contributors or get some help - then send a Tweet to  @alexellisuk  or email  .", 
+            "title": "Community"
+        }, 
+        {
+            "location": "/#roadmap-and-contributing", 
+            "text": "OpenFaaS is written in Golang and is MIT licensed - contributions are welcomed whether that means providing feedback, testing existing and new feature or hacking on the source.  To get started you can read the  roadmap  and  contribution guide  or:   Browse FaaS issues on Github .  Browse FaaS-CLI issues on Github .   Highlights:   New: Kubernetes support via  FaaS-netes  plugin  New: FaaS CLI and easy install via  curl  and  brew  New: Windows function support  New: Asynchronous/long-running OpenFaaS functions via  NATS Streaming  -  Follow this guide", 
+            "title": "Roadmap and contributing"
+        }, 
+        {
+            "location": "/#how-do-i-become-a-contributor", 
+            "text": "Anyone is invited to contribute to the project in-line with the  contribution guide  - you can also read the guide for ideas on how to get involved. We invite new contributors to join our Slack community. We would also ask you to propose any changes or contributions ahead of time, especially when there is no issue or proposal already tracking it.", 
+            "title": "How do I become a contributor?"
+        }, 
+        {
+            "location": "/#other", 
+            "text": "Example of a Grafana dashboards linked to OpenFaaS showing auto-scaling live in action:  here   An alternative community dashboard is  available here", 
+            "title": "Other"
         }, 
         {
             "location": "/getting-started/deploy/", 
