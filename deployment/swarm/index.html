@@ -805,8 +805,7 @@
 <li>
 <p>Clone the OpenFaaS repo and checkout the latest stable release:</p>
 <div class="codehilite"><pre><span></span>$ git clone https://github.com/openfaas/faas &amp;&amp; \
-  cd faas &amp;&amp; \
-  git checkout 0.6.7
+  cd faas
 </pre></div>
 
 </li>
@@ -822,10 +821,6 @@
 </li>
 </ol>
 <p><code>./deploy_stack.*</code> scripts can be run at any time and include a set of sample functions.</p>
-<div class="admonition tip">
-<p class="admonition-title">Asynchronous OpenFaaS</p>
-<p>The  provided <code>./deploy_extended.sh</code> script lets you deploy OpenFaaS with support for Asynchronous functions. Read more about using OpenFaaS with Async support <a href="../../developer/asynchronous/">here</a>.</p>
-</div>
 <h2 id="connect-to-openfaas">Connect to OpenFaaS<a class="headerlink" href="#connect-to-openfaas" title="Permanent link">&para;</a></h2>
 <h3 id="api-gateway">API Gateway<a class="headerlink" href="#api-gateway" title="Permanent link">&para;</a></h3>
 <p>OpenFaaS should complete its deployment within a few seconds (or minutes if on a poor WiFi connection), the API gateway and sample functions will be pulled into your local Docker library and you will be able to access the UI at:</p>

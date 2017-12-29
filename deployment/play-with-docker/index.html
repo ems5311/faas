@@ -658,20 +658,18 @@
 <p>You can quickly start OpenFaaS on Docker Swarm online using the community-run Docker playground: play-with-docker.com (PWD) by clicking the button below:</p>
 <p><a href="http://play-with-docker.com?stack=https://raw.githubusercontent.com/openfaas/faas/master/docker-compose.yml&amp;stack_name=func"><img alt="Try in PWD" src="https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png" /></a></p>
 <h2 id="manual-deployment">Manual Deployment<a class="headerlink" href="#manual-deployment" title="Permanent link">&para;</a></h2>
-<p>The guide makes use of a cloud playground service called <a href="http://play-with-docker.com/">play-with-docker.com</a> that provides free Docker hosts for around 5 hours. If you want to try this on your own laptop just follow along.</p>
+<p>The guide makes use of a cloud playground service called <a href="http://play-with-docker.com/">play-with-docker.com</a> that provides free Docker hosts for around 4 hours. If you want to try this on your own laptop just follow along.</p>
 <ul>
 <li>
-<p>Go to <a href="http://play-with-docker.com/">http://play-with-docker.com/</a> and start a new session. You will probably have to fill out a Captcha.</p>
+<p>Go to <a href="http://play-with-docker.com/">http://play-with-docker.com/</a> and start a new session. You may have to fill out a Captcha.</p>
 </li>
 <li>
-<p>Click "Add New Instance" to create a single Docker host (more can be added later)</p>
+<p>It should create a single host machine for you. If you'd like additional worker nodes, click "Add New Instance"</p>
 </li>
 </ul>
 <p>This one-shot script clones the code, sets up a Docker Swarm master node then deploys OpenFaaS with the sample stack:</p>
-<div class="codehilite"><pre><span></span># docker swarm init --advertise-addr eth0 &amp;&amp; \
-  git clone https://github.com/openfaas/faas &amp;&amp; \
+<div class="codehilite"><pre><span></span># git clone https://github.com/openfaas/faas &amp;&amp; \
   cd faas &amp;&amp; \
-  git checkout 0.6.7 &amp;&amp; \
   ./deploy_stack.sh &amp;&amp; \
   docker service ls
 </pre></div>
