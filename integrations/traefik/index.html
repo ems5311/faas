@@ -825,13 +825,13 @@ $ cd faas
 $ ./deploy_stack.sh
 </pre></div></p>
 <h2 id="configure-traefik-for-basic-authentication">Configure Traefik for Basic Authentication<a class="headerlink" href="#configure-traefik-for-basic-authentication" title="Permanent link">&para;</a></h2>
-<h4 id="generate-an-md5-hashed-password">Generate an MD5 hashed password<a class="headerlink" href="#generate-an-md5-hashed-password" title="Permanent link">&para;</a></h4>
+<h3 id="generate-an-md5-hashed-password">Generate an MD5 hashed password<a class="headerlink" href="#generate-an-md5-hashed-password" title="Permanent link">&para;</a></h3>
 <p>Use htpasswd to generate a hashed password
 <div class="codehilite"><pre><span></span>$  htpasswd -c ./password.txt user
 </pre></div>
 Add a new password when prompted. The new credentials can be found in
 the <code>password.txt</code> file.</p>
-<h4 id="add-traefik-configuration-to-docker-composeyml">Add Traefik configuration to docker-compose.yml<a class="headerlink" href="#add-traefik-configuration-to-docker-composeyml" title="Permanent link">&para;</a></h4>
+<h3 id="add-traefik-configuration-to-docker-composeyml">Add Traefik configuration to docker-compose.yml<a class="headerlink" href="#add-traefik-configuration-to-docker-composeyml" title="Permanent link">&para;</a></h3>
 <p>Add an entry under <code>services</code> with the Traefik configuration
 <div class="codehilite"><pre><span></span># docker-compose.yml
 version: &quot;3.2&quot;
@@ -857,7 +857,7 @@ services:
             placement:
                 constraints: [node.role == manager]
 </pre></div></p>
-<h4 id="update-the-gateway-service">Update the Gateway service<a class="headerlink" href="#update-the-gateway-service" title="Permanent link">&para;</a></h4>
+<h3 id="update-the-gateway-service">Update the Gateway service<a class="headerlink" href="#update-the-gateway-service" title="Permanent link">&para;</a></h3>
 <p>Traefik requires some service labels to discover the gateway service.
 Update the gateway configuration to remove the port property and add
 the appropriate labels.
@@ -884,11 +884,11 @@ Gateway endpoints. The <code>basic.auth</code> label should
 include the username and the hashed password. Remember to escape any special
 characters, so if the password contains a <code>$</code>, you can escape it by
 doubling up <code>$$</code> just like the above.</p>
-<h4 id="re-deploy-openfaas">Re-Deploy OpenFaaS<a class="headerlink" href="#re-deploy-openfaas" title="Permanent link">&para;</a></h4>
+<h3 id="re-deploy-openfaas">Re-Deploy OpenFaaS<a class="headerlink" href="#re-deploy-openfaas" title="Permanent link">&para;</a></h3>
 <p>Redeploy OpenFaaS to update the service with the new changes.
 <div class="codehilite"><pre><span></span>$ ./deploy_stack.sh
 </pre></div></p>
-<h4 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h4>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>$ curl -u user:password -X POST http://localhost/function/func_echoit -d &quot;hello OpenFaaS&quot;
 hello OpenFaaS
 $curl -X POST http://localhost/function/func_echoit -d &quot;hello OpenFaaS&quot;
@@ -897,12 +897,15 @@ $curl -X POST http://localhost/function/func_echoit -d &quot;hello OpenFaaS&quot
 Visit the browser UI at <code>http://localhost/ui/</code>. You should
 be greeted with a login alert.</p>
 <h2 id="configure-traefik-with-ssl-support">Configure Traefik with SSL Support<a class="headerlink" href="#configure-traefik-with-ssl-support" title="Permanent link">&para;</a></h2>
-<h4 id="update-traefik-configuration">Update Traefik configuration<a class="headerlink" href="#update-traefik-configuration" title="Permanent link">&para;</a></h4>
+<h3 id="update-traefik-configuration">Update Traefik configuration<a class="headerlink" href="#update-traefik-configuration" title="Permanent link">&para;</a></h3>
 <p>Traefik makes it extremely easy to add SSL support using
 LetsEncrypt. Add <code>443</code> to the list of ports in the <code>traefik</code>
 service, add the following flags to the command property
 of the <code>traefik</code> service in the <code>docker-compose.yml</code> file,
-and add a new <code>acme</code> volume under the <code>volumes</code> property.
+and add a new <code>acme</code> volume under the <code>volumes</code> property.</p>
+<blockquote>
+<p>Note: if you're using the default EC2 DNS entry it may be black-listed by LetsEncrypt, so you will need to obtain your own domain name.</p>
+</blockquote>
 <div class="codehilite"><pre><span></span># docker-compose.yml
 version: &quot;3.2&quot;
 services:
@@ -930,18 +933,19 @@ services:
             - &quot;/var/run/docker.sock:/var/run/docker.sock
             - &quot;acme:/etc/traefik/acme&quot;
 ...
-</pre></div></p>
+</pre></div>
+
 <p>At the bottom of the <code>docker-compose.yml</code> file, add a new
 named volume.
 <div class="codehilite"><pre><span></span>volumes:
     acme:
 # end of file
 </pre></div></p>
-<h4 id="re-deploy-the-openfaas-service">Re-Deploy the OpenFaaS service<a class="headerlink" href="#re-deploy-the-openfaas-service" title="Permanent link">&para;</a></h4>
+<h3 id="re-deploy-the-openfaas-service">Re-Deploy the OpenFaaS service<a class="headerlink" href="#re-deploy-the-openfaas-service" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>$ ./deploy_stack.sh
 </pre></div>
 
-<h4 id="test_1">Test<a class="headerlink" href="#test_1" title="Permanent link">&para;</a></h4>
+<h3 id="test_1">Test<a class="headerlink" href="#test_1" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>$ curl -u user:password -X POST https://your-domain.com/function/func_echoit -d &quot;hello OpenFaaS&quot;
 hello OpenFaaS
 $curl -X POST https://your-domain.com/function/func_echoit -d &quot;hello OpenFaaS&quot;
