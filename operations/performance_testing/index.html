@@ -13,7 +13,7 @@
         <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
       
       
-        <link rel="canonical" href="https://www.openfaas.com/getting-started/deploy/">
+        <link rel="canonical" href="https://www.openfaas.com/operations/performance_testing/">
       
       
         <meta name="author" content="OpenFaaS Authors">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Part 1 - Deploy - OpenFaaS</title>
+        <title>Performance Testing - OpenFaaS</title>
       
     
     
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Part 1 - Deploy
+                Performance Testing
               </span>
             
           
@@ -227,12 +227,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Getting Started
@@ -248,47 +246,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Part 1 - Deploy
-      </label>
-    
-    <a href="./" title="Part 1 - Deploy" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../getting-started/deploy/" title="Part 1 - Deploy" class="md-nav__link">
       Part 1 - Deploy
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -298,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
       Part 2 - OpenFaaS CLI
     </a>
   </li>
@@ -310,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
+    <a href="../../getting-started/sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
       Part 3 - Sample Functions
     </a>
   </li>
@@ -322,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
       Part 4 - Create a Function
     </a>
   </li>
@@ -589,10 +551,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Operations
@@ -610,7 +574,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/troubleshooting/" title="Troubleshooting" class="md-nav__link">
+    <a href="../troubleshooting/" title="Troubleshooting" class="md-nav__link">
       Troubleshooting
     </a>
   </li>
@@ -622,7 +586,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/secure_secret_management/" title="Secret Management" class="md-nav__link">
+    <a href="../secure_secret_management/" title="Secret Management" class="md-nav__link">
       Secret Management
     </a>
   </li>
@@ -634,7 +598,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/managing-images/" title="Private Registry" class="md-nav__link">
+    <a href="../managing-images/" title="Private Registry" class="md-nav__link">
       Private Registry
     </a>
   </li>
@@ -644,11 +608,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../operations/performance_testing/" title="Performance Testing" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Performance Testing
+      </label>
+    
+    <a href="./" title="Performance Testing" class="md-nav__link md-nav__link--active">
       Performance Testing
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-load-testing" title="Notes on load testing" class="md-nav__link">
+    Notes on load testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checklist" title="Checklist" class="md-nav__link">
+    Checklist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-mistakes-for-performance-testing-a-project" title="Common mistakes for performance-testing a project:" class="md-nav__link">
+    Common mistakes for performance-testing a project:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -658,7 +674,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/interactions/" title="Interacting w/ Other Containers" class="md-nav__link">
+    <a href="../interactions/" title="Interacting w/ Other Containers" class="md-nav__link">
       Interacting w/ Other Containers
     </a>
   </li>
@@ -695,16 +711,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
+  <a href="#notes-on-load-testing" title="Notes on load testing" class="md-nav__link">
+    Notes on load testing
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checklist" title="Checklist" class="md-nav__link">
+    Checklist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-mistakes-for-performance-testing-a-project" title="Common mistakes for performance-testing a project:" class="md-nav__link">
+    Common mistakes for performance-testing a project:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -723,28 +757,39 @@
               
                 
                 
-                <h1 id="part-1-deploy-openfaas">Part 1 - Deploy OpenFaaS<a class="headerlink" href="#part-1-deploy-openfaas" title="Permanent link">&para;</a></h1>
-<h2 id="choose-an-orchestrator">Choose an orchestrator<a class="headerlink" href="#choose-an-orchestrator" title="Permanent link">&para;</a></h2>
-<p>Begin by choosing where you would like to deploy OpenFaaS.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The Docker Playground option lets you start a free remotely hosted OpenFaaS with a single click.</p>
-</div>
-<p><strong>Docker Swarm</strong></p>
-<p>The deployment guide for Docker Swarm provides a simple one-line command to get you up and running in around 60 seconds.</p>
-<ul>
-<li><a href="../../deployment/swarm/">Deployment guide for Docker Swarm</a></li>
+                  <h1>Performance Testing</h1>
+                
+                <h2 id="notes-on-load-testing">Notes on load testing<a class="headerlink" href="#notes-on-load-testing" title="Permanent link">&para;</a></h2>
+<h3 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I have created a test-plan with a hypothesis and documented my method so I can share it with the project team.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I'm using a performance testing tool such as jMeter, LoadRunner or Gattling</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> My environment is hosted in an isolated and repeatable environment</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I have extended or removed memory limits / quotas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I have created my own function and understand the difference between AfterBurn and the default watchdog mode.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I have turned off <code>write_debug</code> and <code>read_debug</code> so that the logs for the function are kept sparse</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I am monitoring / collecting logs from the core services and function under test</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I am monitoring the system for feedback through Prometheus and / or Grafana - i.e. throughput and 200/500 errors</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> If running on Docker Swarm I've verified that I am using a proper HEALTHCHECK (read up more on watchdog readme)</li>
 </ul>
-<p><strong>Kubernetes</strong></p>
-<p>OpenFaaS is Kubernetes-native and provides a set of YAML configuration files to quickly deploy to a Kubernetes cluster.</p>
+<h3 id="common-mistakes-for-performance-testing-a-project">Common mistakes for performance-testing a project:<a class="headerlink" href="#common-mistakes-for-performance-testing-a-project" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../../deployment/kubernetes/">Deployment guide for Kubernetes</a></li>
+<li>Using an inappropriate method</li>
 </ul>
-<p><strong>Docker Playground</strong></p>
-<p>The community-run Docker playground: play-with-docker.com (PWD) allows you to start a free hosted Docker Swarm with OpenFaaS with a single click.</p>
+<p>There is a differnce between performance testing and Denial of Service DoS attacks. Use tools which allow a gradual ramp-up and controlled conditions such as jMeter, LoadRunner or Gattling.</p>
 <ul>
-<li><a href="../../deployment/play-with-docker/">Deployment guide for Play-with-Docker</a></li>
+<li>Choosing an inappropriate test environment</li>
 </ul>
+<p>Do not try to performance test OpenFaaS on your laptop within a VM - this carries an overhead of virtualisation and will likely cause contention.</p>
+<p>The test environment needs to replicate the production environment you are likely to use. Take note that most AWS virtual machines are subject to CPU throttling and a credits system which will make performance testing hard and unscientific.</p>
+<ul>
+<li>Poor choice of test function</li>
+</ul>
+<p>There are several sample functions provided in the project, but that does not automatically qualify them for benchmarking or load-testing. It's important to create your own function and understand exactly what is being put into it so you can measure it efficiently.</p>
+<ul>
+<li>Ignoring CPU / memory limits</li>
+</ul>
+<p>OpenFaaS enforces memory limits on core services. If you are going to perform a high load test you will want to extend these beyond the defaults or remove them completely.</p>
                 
                   
                 
@@ -763,7 +808,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../.." title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../managing-images/" title="Private Registry" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -772,19 +817,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Private Registry
               </span>
             </div>
           </a>
         
         
-          <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../interactions/" title="Interacting w/ Other Containers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Part 2 - OpenFaaS CLI
+                Interacting w/ Other Containers
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
