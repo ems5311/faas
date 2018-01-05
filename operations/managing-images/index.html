@@ -13,7 +13,7 @@
         <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
       
       
-        <link rel="canonical" href="https://www.openfaas.com/getting-started/deploy/">
+        <link rel="canonical" href="https://www.openfaas.com/operations/managing-images/">
       
       
         <meta name="author" content="OpenFaaS Authors">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Part 1 - Deploy - OpenFaaS</title>
+        <title>Managing Images - OpenFaaS</title>
       
     
     
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Part 1 - Deploy
+                Managing Images
               </span>
             
           
@@ -227,12 +227,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Getting Started
@@ -248,47 +246,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Part 1 - Deploy
-      </label>
-    
-    <a href="./" title="Part 1 - Deploy" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../getting-started/deploy/" title="Part 1 - Deploy" class="md-nav__link">
       Part 1 - Deploy
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -298,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
       Part 2 - OpenFaaS CLI
     </a>
   </li>
@@ -310,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
+    <a href="../../getting-started/sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
       Part 3 - Sample Functions
     </a>
   </li>
@@ -322,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
       Part 4 - Create a Function
     </a>
   </li>
@@ -589,10 +551,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Operations
@@ -608,11 +572,67 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../operations/managing-images/" title="Managing Images" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Managing Images
+      </label>
+    
+    <a href="./" title="Managing Images" class="md-nav__link md-nav__link--active">
       Managing Images
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-private-docker-registries" title="Using private Docker registries" class="md-nav__link">
+    Using private Docker registries
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-functions-with-private-registries-credentials" title="Deploy functions with private registries credentials" class="md-nav__link">
+    Deploy functions with private registries credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-your-own-private-docker-registry" title="Deploy your own private Docker registry" class="md-nav__link">
+    Deploy your own private Docker registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -622,7 +642,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/troubleshooting/" title="Troubleshooting" class="md-nav__link">
+    <a href="../troubleshooting/" title="Troubleshooting" class="md-nav__link">
       Troubleshooting
     </a>
   </li>
@@ -666,9 +686,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
+  <a href="#using-private-docker-registries" title="Using private Docker registries" class="md-nav__link">
+    Using private Docker registries
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-functions-with-private-registries-credentials" title="Deploy functions with private registries credentials" class="md-nav__link">
+    Deploy functions with private registries credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-your-own-private-docker-registry" title="Deploy your own private Docker registry" class="md-nav__link">
+    Deploy your own private Docker registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -687,28 +727,88 @@
               
                 
                 
-                <h1 id="part-1-deploy-openfaas">Part 1 - Deploy OpenFaaS<a class="headerlink" href="#part-1-deploy-openfaas" title="Permanent link">&para;</a></h1>
-<h2 id="choose-an-orchestrator">Choose an orchestrator<a class="headerlink" href="#choose-an-orchestrator" title="Permanent link">&para;</a></h2>
-<p>Begin by choosing where you would like to deploy OpenFaaS.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The Docker Playground option lets you start a free remotely hosted OpenFaaS with a single click.</p>
-</div>
-<p><strong>Docker Swarm</strong></p>
-<p>The deployment guide for Docker Swarm provides a simple one-line command to get you up and running in around 60 seconds.</p>
+                <h1 id="managing-images">Managing images<a class="headerlink" href="#managing-images" title="Permanent link">&para;</a></h1>
+<p>Any Docker images you build for your FaaS functions need to be accessible by any Docker Swarm worker or manager in your cluster. The only exception is during development - when you may have a single-node cluster and the image is in your local image library.</p>
+<p>All images should be pushed to either a private repository or the Docker Hub:</p>
 <ul>
-<li><a href="../../deployment/swarm/">Deployment guide for Docker Swarm</a></li>
+<li>Manually built FaaS images</li>
+<li>Images build with the FaaS-CLI</li>
 </ul>
-<p><strong>Kubernetes</strong></p>
-<p>OpenFaaS is Kubernetes-native and provides a set of YAML configuration files to quickly deploy to a Kubernetes cluster.</p>
-<ul>
-<li><a href="../../deployment/kubernetes/">Deployment guide for Kubernetes</a></li>
-</ul>
-<p><strong>Docker Playground</strong></p>
-<p>The community-run Docker playground: play-with-docker.com (PWD) allows you to start a free hosted Docker Swarm with OpenFaaS with a single click.</p>
-<ul>
-<li><a href="../../deployment/play-with-docker/">Deployment guide for Play-with-Docker</a></li>
-</ul>
+<p>Repositories that need authentication will require configuration when deploying your FaaS functions.</p>
+<h2 id="using-private-docker-registries">Using private Docker registries<a class="headerlink" href="#using-private-docker-registries" title="Permanent link">&para;</a></h2>
+<p>FaaS supports running functions from Docker images in private Docker registries.
+The registry credentials can be passed on function deployment, and are then handled by Swarm for image polling.</p>
+<h3 id="deploy-functions-with-private-registries-credentials">Deploy functions with private registries credentials<a class="headerlink" href="#deploy-functions-with-private-registries-credentials" title="Permanent link">&para;</a></h3>
+<p>A <code>POST</code> request on <code>/system/function</code> allows you to specify private registry credentials, as a base64-encoded basic auth (user:password).
+<div class="codehilite"><pre><span></span>curl -XPOST /system/functions -d {
+    &quot;service&quot;: &quot;functionName&quot;,
+    &quot;image&quot;: &quot;privateregistry.domain.com/user/function&quot;,
+    &quot;envProcess&quot;: &quot;/usr/bin/myprocess&quot;,
+    &quot;network&quot;: &quot;func_functions&quot;,
+    &quot;registryAuth&quot;: &quot;dXNlcjpwYXNzd29yZA==&quot;
+}
+</pre></div></p>
+<p>Base64-encoded basic auth can be resolved using your registry username and password:</p>
+<div class="codehilite"><pre><span></span>$ echo -n &quot;user:password&quot; | base64
+</pre></div>
+
+<p>or (to prevent tracking in <code>history</code> command):</p>
+<div class="codehilite"><pre><span></span>$ base64 -
+(type in) user:password (hit control+D twice)
+</pre></div>
+
+<p>You can also find this string your <code>~/.docker/config.json</code> file. Docker stores credentials here after you run the <code>docker login</code> command:</p>
+<div class="codehilite"><pre><span></span>cat ~/.docker/config.json
+{
+    &quot;auths&quot;: {
+        &quot;privateregistry.domain.com&quot;: {
+            &quot;auth&quot;: &quot;dXNlcjpwYXNzd29yZA==&quot;
+        }
+    }
+}
+</pre></div>
+
+<h3 id="deploy-your-own-private-docker-registry">Deploy your own private Docker registry<a class="headerlink" href="#deploy-your-own-private-docker-registry" title="Permanent link">&para;</a></h3>
+<p>If you wish to deploy your own private registry, you can follow <a href="https://docs.docker.com/registry/deploying/">Docker official documentation</a>.</p>
+<p>A quick way to get started for a private registry with TLS and authentication
+is to create a VM with port 443 open to the world (for letsencrypt registration), and a registered DNS ($YOURHOST).
+Then, create these two files in the current directory:</p>
+<div class="codehilite"><pre><span></span># docker-compose.yml
+version: &#39;2&#39;
+
+services:
+
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+      - 5000:5000
+      - 443:5000
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_HTTP_TLS_LETSENCRYPT_CACHEFILE: /letsencrypt/cache
+      REGISTRY_HTTP_TLS_LETSENCRYPT_EMAIL: your@email.com
+    volumes:
+      - ./data:/var/lib/registry
+      - ./auth:/auth
+      - ./letsencrypt:/letsencrypt
+</pre></div>
+
+<div class="codehilite"><pre><span></span># auth/htpasswd (generated with `docker run --entrypoint htpasswd registry:2 -Bbn testuser testpassword`)
+testuser:$2y$05$Bl9siDMe7ieQHLM8e7ifaOklKrHmXymbMqfmqXs7zssj6MMGQW4le
+</pre></div>
+
+<p>Your registry is ready to be deployed by running <code>docker-compose up -d</code>.</p>
+<p>On the client machine, you can now login and use the newly setup registry:
+<div class="codehilite"><pre><span></span>docker pull ubuntu &amp;&amp; docker tag ubuntu $YOURHOST/ubuntu
+docker login $YOURHOST # will add encoded registry credentials to ~/.docker/config.json
+    Username: testuser
+    Password: testpassword
+docker push $YOURHOST/ubuntu
+</pre></div></p>
+<p>Images pushed to this registry can be used as functions with FaaS, provided you pass the appropriate <code>registryAuth</code> parameter at deployment time.</p>
                 
                   
                 
@@ -727,7 +827,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../.." title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../developer/chaining_functions/" title="Function Chaining" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -736,19 +836,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Function Chaining
               </span>
             </div>
           </a>
         
         
-          <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../troubleshooting/" title="Troubleshooting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Part 2 - OpenFaaS CLI
+                Troubleshooting
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

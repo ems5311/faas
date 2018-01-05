@@ -13,7 +13,7 @@
         <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
       
       
-        <link rel="canonical" href="https://www.openfaas.com/getting-started/deploy/">
+        <link rel="canonical" href="https://www.openfaas.com/operations/troubleshooting/">
       
       
         <meta name="author" content="OpenFaaS Authors">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Part 1 - Deploy - OpenFaaS</title>
+        <title>Troubleshooting - OpenFaaS</title>
       
     
     
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Part 1 - Deploy
+                Troubleshooting
               </span>
             
           
@@ -227,12 +227,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Getting Started
@@ -248,47 +246,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Part 1 - Deploy
-      </label>
-    
-    <a href="./" title="Part 1 - Deploy" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../getting-started/deploy/" title="Part 1 - Deploy" class="md-nav__link">
       Part 1 - Deploy
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -298,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
       Part 2 - OpenFaaS CLI
     </a>
   </li>
@@ -310,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
+    <a href="../../getting-started/sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
       Part 3 - Sample Functions
     </a>
   </li>
@@ -322,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
+    <a href="../../getting-started/testdrive/" title="Part 4 - Create a Function" class="md-nav__link">
       Part 4 - Create a Function
     </a>
   </li>
@@ -589,10 +551,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Operations
@@ -610,7 +574,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../operations/managing-images/" title="Managing Images" class="md-nav__link">
+    <a href="../managing-images/" title="Managing Images" class="md-nav__link">
       Managing Images
     </a>
   </li>
@@ -620,11 +584,163 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../operations/troubleshooting/" title="Troubleshooting" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Troubleshooting
+      </label>
+    
+    <a href="./" title="Troubleshooting" class="md-nav__link md-nav__link--active">
       Troubleshooting
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#timeouts" title="Timeouts" class="md-nav__link">
+    Timeouts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcheck" title="Healthcheck" class="md-nav__link">
+    Healthcheck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-swarm" title="Docker Swarm" class="md-nav__link">
+    Docker Swarm
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-functions" title="List all functions" class="md-nav__link">
+    List all functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-a-functions-logs" title="Find a function's logs" class="md-nav__link">
+    Find a function's logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-out-if-a-function-failed-to-start" title="Find out if a function failed to start" class="md-nav__link">
+    Find out if a function failed to start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-and-remove-openfaas" title="Stop and remove OpenFaaS" class="md-nav__link">
+    Stop and remove OpenFaaS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes" title="Kubernetes" class="md-nav__link">
+    Kubernetes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-functions_1" title="List all functions" class="md-nav__link">
+    List all functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-a-functions-logs_1" title="Find a function's logs" class="md-nav__link">
+    Find a function's logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-out-if-a-function-failed-to-start_1" title="Find out if a function failed to start" class="md-nav__link">
+    Find out if a function failed to start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-the-openfaas-deployment" title="Remove the OpenFaaS deployment" class="md-nav__link">
+    Remove the OpenFaaS deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watchdog" title="Watchdog" class="md-nav__link">
+    Watchdog
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-your-function-without-deploying-it" title="Debug your function without deploying it" class="md-nav__link">
+    Debug your function without deploying it
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-your-function-without-rebuilding-it" title="Edit your function without rebuilding it" class="md-nav__link">
+    Edit your function without rebuilding it
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -666,9 +782,125 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#choose-an-orchestrator" title="Choose an orchestrator" class="md-nav__link">
-    Choose an orchestrator
+  <a href="#timeouts" title="Timeouts" class="md-nav__link">
+    Timeouts
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcheck" title="Healthcheck" class="md-nav__link">
+    Healthcheck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-swarm" title="Docker Swarm" class="md-nav__link">
+    Docker Swarm
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-functions" title="List all functions" class="md-nav__link">
+    List all functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-a-functions-logs" title="Find a function's logs" class="md-nav__link">
+    Find a function's logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-out-if-a-function-failed-to-start" title="Find out if a function failed to start" class="md-nav__link">
+    Find out if a function failed to start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-and-remove-openfaas" title="Stop and remove OpenFaaS" class="md-nav__link">
+    Stop and remove OpenFaaS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes" title="Kubernetes" class="md-nav__link">
+    Kubernetes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-functions_1" title="List all functions" class="md-nav__link">
+    List all functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-a-functions-logs_1" title="Find a function's logs" class="md-nav__link">
+    Find a function's logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-out-if-a-function-failed-to-start_1" title="Find out if a function failed to start" class="md-nav__link">
+    Find out if a function failed to start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-the-openfaas-deployment" title="Remove the OpenFaaS deployment" class="md-nav__link">
+    Remove the OpenFaaS deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watchdog" title="Watchdog" class="md-nav__link">
+    Watchdog
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-your-function-without-deploying-it" title="Debug your function without deploying it" class="md-nav__link">
+    Debug your function without deploying it
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-your-function-without-rebuilding-it" title="Edit your function without rebuilding it" class="md-nav__link">
+    Edit your function without rebuilding it
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -687,28 +919,141 @@
               
                 
                 
-                <h1 id="part-1-deploy-openfaas">Part 1 - Deploy OpenFaaS<a class="headerlink" href="#part-1-deploy-openfaas" title="Permanent link">&para;</a></h1>
-<h2 id="choose-an-orchestrator">Choose an orchestrator<a class="headerlink" href="#choose-an-orchestrator" title="Permanent link">&para;</a></h2>
-<p>Begin by choosing where you would like to deploy OpenFaaS.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The Docker Playground option lets you start a free remotely hosted OpenFaaS with a single click.</p>
-</div>
-<p><strong>Docker Swarm</strong></p>
-<p>The deployment guide for Docker Swarm provides a simple one-line command to get you up and running in around 60 seconds.</p>
-<ul>
-<li><a href="../../deployment/swarm/">Deployment guide for Docker Swarm</a></li>
-</ul>
-<p><strong>Kubernetes</strong></p>
-<p>OpenFaaS is Kubernetes-native and provides a set of YAML configuration files to quickly deploy to a Kubernetes cluster.</p>
-<ul>
-<li><a href="../../deployment/kubernetes/">Deployment guide for Kubernetes</a></li>
-</ul>
-<p><strong>Docker Playground</strong></p>
-<p>The community-run Docker playground: play-with-docker.com (PWD) allows you to start a free hosted Docker Swarm with OpenFaaS with a single click.</p>
-<ul>
-<li><a href="../../deployment/play-with-docker/">Deployment guide for Play-with-Docker</a></li>
-</ul>
+                <h1 id="troubleshooting-guide">Troubleshooting guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">&para;</a></h1>
+<h2 id="timeouts">Timeouts<a class="headerlink" href="#timeouts" title="Permanent link">&para;</a></h2>
+<p>Default timeouts are configured at the HTTP level and must be set both on the gateway and the function.</p>
+<p><strong>Your function</strong></p>
+<p>You can also enforce a hard-timeout for your function with the <code>hard_timeout</code> environmental variable.</p>
+<p>For watchdog configuration see the <a href="https://github.com/openfaas/faas/tree/master/watchdog">README</a>.</p>
+<p>The best way to set the timeout is in the YAML file generated by the <code>faas-cli</code>.</p>
+<p>Example Go app that sleeps for (10 seconds):</p>
+<div class="codehilite"><pre><span></span>provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  sleepygo:
+    lang: go
+    handler: ./sleepygo
+    image: alexellis2/sleeps-for-10-seconds
+    environment:
+        read_timeout: 20
+        write_timeout: 20
+</pre></div>
+
+<p>handler.go</p>
+<div class="codehilite"><pre><span></span>package function
+
+...
+
+func Handle(req []byte) string {
+    time.Sleep(time.Second * 10)
+    return fmt.Sprintf(&quot;Hello, Go. You said: %s&quot;, string(req))
+}
+</pre></div>
+
+<p><strong>Gateway</strong></p>
+<p>For the gateway set the following environmental variables:</p>
+<div class="codehilite"><pre><span></span>read_timeout: 30
+write_timeout: 30
+</pre></div>
+
+<p>The default for both is "8" - seconds. In the example above "30" means 30 seconds.</p>
+<p>If on Kubernetes, set a matching timeout for the faas-netesd controller too:</p>
+<div class="codehilite"><pre><span></span>read_timeout: 30
+write_timeout: 30
+</pre></div>
+
+<h2 id="healthcheck">Healthcheck<a class="headerlink" href="#healthcheck" title="Permanent link">&para;</a></h2>
+<p>Most problems reported via GitHub or Slack stem from a configuration problem or issue with a function. Here is a checklist of things you can try before digging deeper:</p>
+<p>Checklist:
+* [ ] All core services are deployed: i.e. gateway
+* [ ] Check functions are deployed and started
+* [ ] Check request isn't timing out at the gateway or the function level</p>
+<h2 id="docker-swarm">Docker Swarm<a class="headerlink" href="#docker-swarm" title="Permanent link">&para;</a></h2>
+<h3 id="list-all-functions">List all functions<a class="headerlink" href="#list-all-functions" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ docker service ls
+</pre></div>
+
+<p>You are looking for 1/1 for the replica count of each service listed.</p>
+<h3 id="find-a-functions-logs">Find a function's logs<a class="headerlink" href="#find-a-functions-logs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ docker service logs --tail 100 FUNCTION
+</pre></div>
+
+<h3 id="find-out-if-a-function-failed-to-start">Find out if a function failed to start<a class="headerlink" href="#find-out-if-a-function-failed-to-start" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ docker service ps --no-trunc=true FUNCTION
+</pre></div>
+
+<h3 id="stop-and-remove-openfaas">Stop and remove OpenFaaS<a class="headerlink" href="#stop-and-remove-openfaas" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ docker stack rm func
+</pre></div>
+
+<p>If you have additional services / functions remove the remaining ones like this:</p>
+<div class="codehilite"><pre><span></span>$ docker service ls -q | xargs docker service rm
+</pre></div>
+
+<p><em>Use with caution</em></p>
+<h2 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h2>
+<h3 id="list-all-functions_1">List all functions<a class="headerlink" href="#list-all-functions_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ kubectl get deploy
+</pre></div>
+
+<h3 id="find-a-functions-logs_1">Find a function's logs<a class="headerlink" href="#find-a-functions-logs_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ kubectl logs deploy/FUNCTION
+</pre></div>
+
+<h3 id="find-out-if-a-function-failed-to-start_1">Find out if a function failed to start<a class="headerlink" href="#find-out-if-a-function-failed-to-start_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ kubectl describe deploy/FUNCTION
+</pre></div>
+
+<h3 id="remove-the-openfaas-deployment">Remove the OpenFaaS deployment<a class="headerlink" href="#remove-the-openfaas-deployment" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>$ kubectl delete -f faas.yml,monitoring.yml,rbac.yml
+</pre></div>
+
+<p>If you're using the async stack remove it this way:</p>
+<div class="codehilite"><pre><span></span>$ kubectl delete -f faas.async.yml,monitoring.yml,rbac.yml,nats.yml
+</pre></div>
+
+<h2 id="watchdog">Watchdog<a class="headerlink" href="#watchdog" title="Permanent link">&para;</a></h2>
+<h3 id="debug-your-function-without-deploying-it">Debug your function without deploying it<a class="headerlink" href="#debug-your-function-without-deploying-it" title="Permanent link">&para;</a></h3>
+<p>Here's an example of how you can deploy a function without using an orchestrator and the API gateeway. It is especially useful for testing:</p>
+<div class="codehilite"><pre><span></span>$ docker run --name debug-alpine \
+  -p 8081:8080 -ti functions/alpine:latest sh
+# fprocess=date fwatchdog &amp;
+</pre></div>
+
+<p>Now you can access the function with one of the supported HTTP methods such as GET/POST etc:</p>
+<div class="codehilite"><pre><span></span>$ curl -4 localhost:8081
+</pre></div>
+
+<h3 id="edit-your-function-without-rebuilding-it">Edit your function without rebuilding it<a class="headerlink" href="#edit-your-function-without-rebuilding-it" title="Permanent link">&para;</a></h3>
+<p>You can bind-mount code straight into your function and work with it locally, until you are ready to re-build. This is a common flow with containers, but should be used sparingly.</p>
+<p>Within the CLI directory for instance:</p>
+<p>Build the samples:</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/openfaas/faas-cli &amp;&amp; \
+  cd faas-cli
+$ faas-cli -action build -f ./samples.yml
+</pre></div>
+
+<p>Now work with the Python-hello sample, with the code mounted live:</p>
+<div class="codehilite"><pre><span></span>$ docker run -v `pwd`/sample/url-ping/:/root/function/ \
+  --name debug-alpine -p 8081:8080 -ti alexellis/faas-url-ping sh
+$ touch ./function/__init__.py
+# fwatchdog
+</pre></div>
+
+<p>Now you can start editing the code in the sample/url-ping folder and it will reload live for every request.</p>
+<div class="codehilite"><pre><span></span>$ curl localhost:8081 -d &quot;https://www.google.com&quot;
+Handle this -&gt; https://www.google.com
+https://www.google.com =&gt; 200
+</pre></div>
+
+<p>Now you can edit handler.py and you'll see the change immediately:</p>
+<div class="codehilite"><pre><span></span>$ echo &quot;def handle(req):&quot; &gt; sample/url-ping/handler.py
+$ echo &#39;    print(&quot;Nothing to see here&quot;)&#39; &gt;&gt; sample/url-ping/handler.py
+$ curl localhost:8081 -d &quot;https://www.google.com&quot;
+Nothing to see here
+</pre></div>
                 
                   
                 
@@ -727,7 +1072,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../.." title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../managing-images/" title="Managing Images" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -736,19 +1081,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Managing Images
               </span>
             </div>
           </a>
         
         
-          <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../contributing/" title="Contributing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Part 2 - OpenFaaS CLI
+                Contributing
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
