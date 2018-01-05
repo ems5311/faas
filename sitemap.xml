@@ -144,12 +144,6 @@
     
         
     <url>
-     <loc>https://www.openfaas.com//operations/troubleshooting/</loc>
-     <lastmod>2018-01-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>https://www.openfaas.com//operations/secure_secret_management/</loc>
      <lastmod>2018-01-04</lastmod>
      <changefreq>daily</changefreq>
@@ -173,6 +167,14 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>https://www.openfaas.com//troubleshooting/</loc>
+     <lastmod>2018-01-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
     
