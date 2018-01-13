@@ -713,9 +713,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contributing" title="Contributing" class="md-nav__link">
-    Contributing
+  <a href="#must-have" title="Must have" class="md-nav__link">
+    Must have
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-have" title="Should have" class="md-nav__link">
+    Should have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#could-have" title="Could have" class="md-nav__link">
+    Could have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nice-to-have" title="Nice to have" class="md-nav__link">
+    Nice to have
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-going-integrations-in-addition-to-swarm-and-k8s" title="On-going integrations in addition to Swarm and K8s:" class="md-nav__link">
+    On-going integrations in addition to Swarm and K8s:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -815,9 +849,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contributing" title="Contributing" class="md-nav__link">
-    Contributing
+  <a href="#must-have" title="Must have" class="md-nav__link">
+    Must have
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-have" title="Should have" class="md-nav__link">
+    Should have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#could-have" title="Could have" class="md-nav__link">
+    Could have
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nice-to-have" title="Nice to have" class="md-nav__link">
+    Nice to have
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-going-integrations-in-addition-to-swarm-and-k8s" title="On-going integrations in addition to Swarm and K8s:" class="md-nav__link">
+    On-going integrations in addition to Swarm and K8s:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -843,7 +911,7 @@
                 
                 <h1 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h1>
 <h2 id="1-current-features">1. Current features<a class="headerlink" href="#1-current-features" title="Permanent link">&para;</a></h2>
-<p>For an overview of features in August 2017 read the following post:</p>
+<p>For an overview of features read the following post:</p>
 <ul>
 <li><a href="https://blog.alexellis.io/introducing-functions-as-a-service/">Introducing OpenFaaS (Functions as a Service)</a></li>
 </ul>
@@ -924,56 +992,44 @@
 <h2 id="2-futurecurrent-work-subject-to-change">2. Future/current work (subject to change)<a class="headerlink" href="#2-futurecurrent-work-subject-to-change" title="Permanent link">&para;</a></h2>
 <p>If you need an up-to-date picture of what is current and ready-for-use please reach out to the OpenFaaS maintainers through our Slack comunity. Most items are detailed <a href="https://github.com/openfaas/faas/issues">via Github issues</a>.</p>
 <p>Native support is available for Docker Swarm and Kubernetes using primitive API objects in each orchestration platform.</p>
-<p>Must have</p>
+<h4 id="must-have">Must have<a class="headerlink" href="#must-have" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Dedicated blog site built from GitHub pages or Hugo</li>
 <li>Developer Cloud guides:</li>
 <li>for Digital Ocean (done)</li>
 <li>for Packet</li>
 <li>for AWS</li>
-<li>
-<p>Developer guide for your first Node.js function</p>
-</li>
-<li>
-<p>Configurable memory limits per function exposed through API</p>
-</li>
+<li>Developer guide for your first Node.js function</li>
+<li>Configurable memory limits per function exposed through API</li>
 <li>Certifier for third-party integrations - via e2e tests (in progress) </li>
 <li>Return stderr or link to stderr via function invocation (For VMWare / Mark Peek)</li>
 <li>Community function templates for the FaaS-CLI (in progress)</li>
 </ul>
-<p>Should have</p>
+<h4 id="should-have">Should have<a class="headerlink" href="#should-have" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Docker image builder as remote service based upon Moby</li>
 <li>Kafka-Connector for the API Gateway</li>
 <li>AfterBurn - fork once, use many which removes almost all runtime latency - (Alpha available)</li>
-<li>
-<p>Kafka queue worker implementation (async currently available by NATS Streaming) - available in pending PR</p>
-</li>
-<li>
-<p>Our own "timer" (aka cron) for invoking functions on a regular basis - or a guide for setting this up via Jenkins or CRON</p>
-</li>
+<li>Kafka queue worker implementation (async currently available by NATS Streaming) - available in pending PR</li>
+<li>Our own "timer" (aka cron) for invoking functions on a regular basis - or a guide for setting this up via Jenkins or CRON</li>
 <li>Guide/proxy for Flask in a function</li>
 </ul>
-<p>Could have</p>
+<h4 id="could-have">Could have<a class="headerlink" href="#could-have" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Multi-tenancy (in-progress for Kubernetes and Docker Swarm)</li>
 <li>Progress animation for building Docker images via CLI</li>
-<li>
-<p>Built-in Docker registry with default configuration</p>
-</li>
-<li>
-<p>Function store - list of useful predefined functions</p>
-</li>
+<li>Built-in Docker registry with default configuration</li>
+<li>Function store - list of useful predefined functions</li>
 <li>Configurable memory limits via "new function" pop-up (already supported by Docker compose stack)</li>
 <li>Scale to zero 0/0 replicas</li>
 <li>Serverless Inc framework support - as a "provider" (in progress)</li>
 </ul>
-<p>Nice to have</p>
+<h3 id="nice-to-have">Nice to have<a class="headerlink" href="#nice-to-have" title="Permanent link">&para;</a></h3>
 <ul>
 <li>CRIU - (Checkpoint/Restore In Userspace) for starting serverless tasks with a high start-up cost/latency.</li>
 <li>Deeper tests coverage and integration tests</li>
 </ul>
-<p>On-going integrations in addition to Swarm and K8s:</p>
+<h4 id="on-going-integrations-in-addition-to-swarm-and-k8s">On-going integrations in addition to Swarm and K8s:<a class="headerlink" href="#on-going-integrations-in-addition-to-swarm-and-k8s" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ECS - via Huawei</li>
 <li>Nomad via Hashicorp / Nic Jackson</li>
@@ -982,8 +1038,6 @@
 <li>DC/OS via Alberto in the community</li>
 </ul>
 <p>Internal research is also being done for the ACI / AKS / K8s-connector.</p>
-<h3 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h3>
-<p>Please see <a href="https://github.com/openfaas/faas/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
                 
                   
                 
