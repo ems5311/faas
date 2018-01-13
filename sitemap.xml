@@ -179,6 +179,14 @@
 
     
     <url>
+     <loc>https://www.openfaas.com//roadmap/</loc>
+     <lastmod>2018-01-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>https://www.openfaas.com//contributing/</loc>
      <lastmod>2018-01-13</lastmod>
      <changefreq>daily</changefreq>
