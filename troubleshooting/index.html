@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.6">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.6525f7f6.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.41c6761c.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
       
@@ -659,6 +659,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#function-execution-logs" title="Function execution logs" class="md-nav__link">
+    Function execution logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#healthcheck" title="Healthcheck" class="md-nav__link">
     Healthcheck
   </a>
@@ -830,6 +837,13 @@
         <li class="md-nav__item">
   <a href="#timeouts" title="Timeouts" class="md-nav__link">
     Timeouts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-execution-logs" title="Function execution logs" class="md-nav__link">
+    Function execution logs
   </a>
   
 </li>
@@ -1010,6 +1024,46 @@ write_timeout: 30
 write_timeout: 30
 </pre></div>
 
+<h2 id="function-execution-logs">Function execution logs<a class="headerlink" href="#function-execution-logs" title="Permanent link">&para;</a></h2>
+<p>By default the functions will not log out the result, but just show how long the process took to run and the length of the result in bytes.</p>
+<div class="codehilite"><pre><span></span>$ echo test this | faas invoke json-hook -g localhost:31112
+Received JSON webook. Elements: 10
+
+$ kubectl logs deploy/json-hook -n openfaas-fn
+2018/01/28 20:47:21 Writing lock-file to: /tmp/.lock
+2018/01/28 20:47:27 Forking fprocess.
+2018/01/28 20:47:27 Wrote 35 Bytes - Duration: 0.001844 seconds
+</pre></div>
+
+<p>If you want to see the result of a function in the function's logs then deploy it with the <code>write_debug</code> environmental variable set to <code>true</code>.</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span>provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  json-hook:
+    lang: go
+    handler: ./json-hook
+    image: json-hook
+    environment:
+      write_debug: true
+</pre></div>
+
+<p>Now you'll see logs like this:</p>
+<div class="codehilite"><pre><span></span>$ echo test this | faas invoke json-hook -g localhost:31112
+Received JSON webook. Elements: 10
+
+$ kubectl logs deploy/json-hook -n openfaas-fn
+2018/01/28 20:50:27 Writing lock-file to: /tmp/.lock
+2018/01/28 20:50:35 Forking fprocess.
+2018/01/28 20:50:35 Query  
+2018/01/28 20:50:35 Path  /function/json-hook
+Received JSON webook. Elements: 10
+2018/01/28 20:50:35 Duration: 0.001857 seconds
+</pre></div>
+
+<p>You can then find the logs of the function using Docker Swarm or Kubernetes as listed in the section below.</p>
 <h2 id="healthcheck">Healthcheck<a class="headerlink" href="#healthcheck" title="Permanent link">&para;</a></h2>
 <p>Most problems reported via GitHub or Slack stem from a configuration problem or issue with a function. Here is a checklist of things you can try before digging deeper:</p>
 <p>Checklist:
@@ -1183,7 +1237,7 @@ Nothing to see here
       
     </div>
     
-      <script src="../assets/javascripts/application.cae2244d.js"></script>
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
