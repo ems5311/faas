@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://www.openfaas.com//</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>https://www.openfaas.com//getting-started/deploy/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//getting-started/testdrive/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//getting-started/sample_functions/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://www.openfaas.com//getting-started/testdrive/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <loc>https://www.openfaas.com//getting-started/functions/</loc>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -40,7 +40,7 @@
     
     <url>
      <loc>https://www.openfaas.com//architecture/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -49,19 +49,19 @@
         
     <url>
      <loc>https://www.openfaas.com//deployment/swarm/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//deployment/kubernetes/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//deployment/play-with-docker/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -71,13 +71,13 @@
         
     <url>
      <loc>https://www.openfaas.com//integrations/kong/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//integrations/traefik/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -87,55 +87,55 @@
         
     <url>
      <loc>https://www.openfaas.com//developer/gateway/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/dashboard/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/watchdog/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/functions/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/asynchronous/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/swagger/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/debug/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/backends/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//developer/chaining_functions/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -145,25 +145,25 @@
         
     <url>
      <loc>https://www.openfaas.com//operations/secure_secret_management/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//operations/managing-images/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//operations/performance_testing/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://www.openfaas.com//operations/interactions/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -172,7 +172,7 @@
     
     <url>
      <loc>https://www.openfaas.com//troubleshooting/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -180,7 +180,7 @@
     
     <url>
      <loc>https://www.openfaas.com//roadmap/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -188,7 +188,7 @@
     
     <url>
      <loc>https://www.openfaas.com//contributing/</loc>
-     <lastmod>2018-01-28</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

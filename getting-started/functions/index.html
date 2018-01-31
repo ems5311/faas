@@ -13,7 +13,7 @@
         <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
       
       
-        <link rel="canonical" href="https://www.openfaas.com/operations/secure_secret_management/">
+        <link rel="canonical" href="https://www.openfaas.com/getting-started/functions/">
       
       
         <meta name="author" content="OpenFaaS Authors">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Secret Management - OpenFaaS</title>
+        <title>Part 4 - Create a Function - OpenFaaS</title>
       
     
     
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Secret Management
+                Part 4 - Create a Function
               </span>
             
           
@@ -227,10 +227,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Getting Started
@@ -248,7 +250,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting-started/deploy/" title="Part 1 - Deploy" class="md-nav__link">
+    <a href="../deploy/" title="Part 1 - Deploy" class="md-nav__link">
       Part 1 - Deploy
     </a>
   </li>
@@ -260,7 +262,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting-started/testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
+    <a href="../testdrive/" title="Part 2 - OpenFaaS CLI" class="md-nav__link">
       Part 2 - OpenFaaS CLI
     </a>
   </li>
@@ -272,7 +274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../getting-started/sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
+    <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-nav__link">
       Part 3 - Sample Functions
     </a>
   </li>
@@ -282,11 +284,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../getting-started/functions/" title="Part 4 - Create a Function" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="./" title="Part 4 - Create a Function" class="md-nav__link md-nav__link--active">
       Part 4 - Create a Function
     </a>
+    
   </li>
 
         
@@ -551,12 +560,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Tutorials
@@ -572,61 +579,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Secret Management
-      </label>
-    
-    <a href="./" title="Secret Management" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../operations/secure_secret_management/" title="Secret Management" class="md-nav__link">
       Secret Management
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-environment-variables" title="Using Environment Variables" class="md-nav__link">
-    Using Environment Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-swarm-secrets" title="Using Swarm Secrets" class="md-nav__link">
-    Using Swarm Secrets
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-swarm-secrets" title="Advanced Swarm Secrets" class="md-nav__link">
-    Advanced Swarm Secrets
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -636,7 +593,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../managing-images/" title="Private Registry" class="md-nav__link">
+    <a href="../../operations/managing-images/" title="Private Registry" class="md-nav__link">
       Private Registry
     </a>
   </li>
@@ -648,7 +605,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../performance_testing/" title="Performance Testing" class="md-nav__link">
+    <a href="../../operations/performance_testing/" title="Performance Testing" class="md-nav__link">
       Performance Testing
     </a>
   </li>
@@ -660,7 +617,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../interactions/" title="Interacting w/ Other Containers" class="md-nav__link">
+    <a href="../../operations/interactions/" title="Interacting w/ Other Containers" class="md-nav__link">
       Interacting w/ Other Containers
     </a>
   </li>
@@ -714,141 +671,20 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#using-environment-variables" title="Using Environment Variables" class="md-nav__link">
-    Using Environment Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-swarm-secrets" title="Using Swarm Secrets" class="md-nav__link">
-    Using Swarm Secrets
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-swarm-secrets" title="Advanced Swarm Secrets" class="md-nav__link">
-    Advanced Swarm Secrets
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                <h1 id="secrets-with-openfaas-and-docker-swarm">Secrets with OpenFaaS and Docker Swarm<a class="headerlink" href="#secrets-with-openfaas-and-docker-swarm" title="Permanent link">&para;</a></h1>
-<p>OpenFaaS deploys functions as Docker Swarm Services, as result there are several features that we can leverage to simplify the development and subsquent deployment of functions to hardened production environments.</p>
-<h2 id="using-environment-variables">Using Environment Variables<a class="headerlink" href="#using-environment-variables" title="Permanent link">&para;</a></h2>
-<p>First, and least secure, is the ability to set environment variables at deploy time. For example, you might want to set the <code>NODE_ENV</code> or <code>DEBUG</code> variable.  Setting the <code>NODE_ENV</code> in the stack file <code>samples.yml</code>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">faas</span>
-  <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://localhost:8080</span>
+                  <h1>Part 4 - Create a Function</h1>
+                
+                <!-- ## Test out the UI -->
 
-<span class="l l-Scalar l-Scalar-Plain">functions</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">nodehelloenv</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">lang</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
-    <span class="l l-Scalar l-Scalar-Plain">skip_build</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functions/nodehelloenv:latest</span>
-    <span class="l l-Scalar l-Scalar-Plain">environment</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">NODE_ENV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">production</span>
-</pre></div></p>
-<p>You can then deploy and invoke the function via the <code>faas-cli</code> using
-<div class="codehilite"><pre><span></span>$ faas-cli deploy -f ./samples.yml
-$ faas-cli invoke nodehelloenv
-Hello from a production machine
-</pre></div></p>
-<p>Notice that it is using the value of <code>NODE_ENV</code> from the stack file, the default is is <code>dev</code>.</p>
-<h2 id="using-swarm-secrets">Using Swarm Secrets<a class="headerlink" href="#using-swarm-secrets" title="Permanent link">&para;</a></h2>
-<p><em>Note</em>: The examples in the following section require <code>faas-cli</code> version <code>&gt;=0.5.1</code>.</p>
-<p>For sensitive value we can leverage the <a href="https://docs.docker.com/engine/swarm/secrets/">Docker Swarm Secrets</a> feature to safely store and give our functions access to the needed values. Using secrets is a two step process.  Take the <a href="../../sample-functions/ApiKeyProtected">ApiKeyProtected</a> example function, when we deploy this function we provide a secret key that it uses to authenticate requests to it.  First we must add a secret to the swarm</p>
-<div class="codehilite"><pre><span></span>docker secret create secret_api_key ~/secrets/secret_api_key.txt
-</pre></div>
+<!-- ## Learn the CLI -->
 
-<p>where <code>~/secrets/secret_api_key.txt</code> is a simple text file that might look like this</p>
-<div class="codehilite"><pre><span></span>R^YqzKzSJw51K9zPpQ3R3N
-</pre></div>
-
-<p>Equivalently, you can pipe the value to docker via stdin like this</p>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;R^YqzKzSJw51K9zPpQ3R3N&quot;</span> <span class="p">|</span> docker secret create secret_api_key -
-</pre></div>
-
-<p>Now, with the secret defined, we can deploy the function like this</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;R^YqzKzSJw51K9zPpQ3R3N&quot;</span> <span class="p">|</span> docker secret create secret_api_key -
-$ faas-cli deploy -f ./samples.yml --secret secret_api_key
-$ curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -H <span class="s2">&quot;X-Api-Key: R^YqzKzSJw51K9zPpQ3R3N&quot;</span> <span class="se">\</span>
-     -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
-     http://localhost:8080/function/protectedapi
-
-Unlocked the <span class="k">function</span>!
-
-$ curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -H <span class="s2">&quot;X-Api-Key: wrong_key&quot;</span> <span class="se">\</span>
-     -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
-     http://localhost:8080/function/protectedapi
-
-Access denied!
-</pre></div>
-
-<p>Your <code>samples.yml</code> stack file looks like this
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">faas</span>
-  <span class="l l-Scalar l-Scalar-Plain">gateway</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://localhost:8080</span>
-
-<span class="l l-Scalar l-Scalar-Plain">functions</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">protectedapi</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">lang</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
-    <span class="l l-Scalar l-Scalar-Plain">skip_build</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functions/api-key-protected:latest</span>
-</pre></div></p>
-<p>Note that unlike the <code>envVars</code> in the first example, we do not provide the secret value, just a list of names: <code>&quot;secrets&quot;: [&quot;secret_api_key&quot;]</code>. The secret value has already been securely stored in the Docker swarm.  One really great result of this type of configuration is that you can simplify your function code by always referencing the same secret name, no matter the environment, the only change is how the environments are configured.</p>
-<h2 id="advanced-swarm-secrets">Advanced Swarm Secrets<a class="headerlink" href="#advanced-swarm-secrets" title="Permanent link">&para;</a></h2>
-<p>For various reasons, you might add a secret to the Swarm under a different name than you want to use in your function, e.g. if you are rotating a secret key. The Docker Swarm secret specification allows us some advanced configuration of secrets <a href="https://docs.docker.com/engine/reference/commandline/service_create/#create-a-service-with-secrets">by supplying a comma-separated value specifying the secret</a>.  The is best show in an example. Let's change the api key on our example function.</p>
-<p>First add a new secret key</p>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;newqzKzSJw51K9zPpQ3R3N&quot;</span> <span class="p">|</span> docker secret create secret_api_key_2 -
-</pre></div>
-
-<p>Then, remove our old function and redeploy it with the new secret mounted in the same place as the old secret</p>
-<div class="codehilite"><pre><span></span>$ faas-cli deploy -f ./samples.yml --secret <span class="nv">source</span><span class="o">=</span>secret_api_key_2,target<span class="o">=</span>secret_api_key  --replace
-$ curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -H <span class="s2">&quot;X-Api-Key: newqzKzSJw51K9zPpQ3R3N&quot;</span> <span class="se">\</span>
-     -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
-     http://localhost:8080/function/protectedapi
-
-Unlocked the <span class="k">function</span>!
-</pre></div>
-
-<p>We reuse the sample stack file as in the previous section.</p>
+<p>You can now grab a coffee and start learning how to create your first function with the CLI:</p>
+<p><a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Morning coffee with the OpenFaaS CLI</a></p>
                 
                   
                 
@@ -867,7 +703,7 @@ Unlocked the <span class="k">function</span>!
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../developer/chaining_functions/" title="Function Chaining" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -876,19 +712,19 @@ Unlocked the <span class="k">function</span>!
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Function Chaining
+                Part 3 - Sample Functions
               </span>
             </div>
           </a>
         
         
-          <a href="../managing-images/" title="Private Registry" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../architecture/" title="Architecture" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Private Registry
+                Architecture
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.1">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.6">
     
     
       
-        <title>Part 4 - Create a Function - OpenFaaS</title>
+        <title>Part 2 - OpenFaaS CLI - OpenFaaS</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.41c6761c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6525f7f6.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
       
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Part 4 - Create a Function
+                Part 2 - OpenFaaS CLI
               </span>
             
           
@@ -260,8 +260,10 @@
           
           
 
+  
 
-  <li class="md-nav__item">
+
+  <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
@@ -407,136 +409,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Part 4 - Create a Function
-      </label>
-    
-    <a href="./" title="Part 4 - Create a Function" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../functions/" title="Part 4 - Create a Function" class="md-nav__link">
       Part 4 - Create a Function
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#begin-the-testdrive" title="Begin the TestDrive" class="md-nav__link">
-    Begin the TestDrive
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pre-reqs" title="Pre-reqs" class="md-nav__link">
-    Pre-reqs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#start-here" title="Start here" class="md-nav__link">
-    Start here
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-faas-cli" title="Install FaaS-CLI" class="md-nav__link">
-    Install FaaS-CLI
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#invoke-the-sample-functions-with-curl-or-postman" title="Invoke the sample functions with curl or Postman:" class="md-nav__link">
-    Invoke the sample functions with curl or Postman:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#working-with-the-sample-functions" title="Working with the sample functions" class="md-nav__link">
-    Working with the sample functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-functions-from-templates-and-the-cli" title="Build functions from templates and the CLI" class="md-nav__link">
-    Build functions from templates and the CLI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#package-a-custom-docker-image" title="Package a custom Docker image" class="md-nav__link">
-    Package a custom Docker image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-new-functions-to-faas-at-runtime" title="Add new functions to FaaS at runtime" class="md-nav__link">
-    Add new functions to FaaS at runtime
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#delete-a-function-at-runtime" title="Delete a function at runtime" class="md-nav__link">
-    Delete a function at runtime
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exploring-the-functions-with-curl" title="Exploring the functions with curl" class="md-nav__link">
-    Exploring the functions with curl
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1319,7 +1196,7 @@ d769ca70729d        alexellis2/faas-webhookstash@sha256:b378f1a144202baa8fb008f2
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../deploy/" title="Part 1 - Deploy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1328,19 +1205,19 @@ d769ca70729d        alexellis2/faas-webhookstash@sha256:b378f1a144202baa8fb008f2
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Part 3 - Sample Functions
+                Part 1 - Deploy
               </span>
             </div>
           </a>
         
         
-          <a href="../../architecture/" title="Architecture" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../sample_functions/" title="Part 3 - Sample Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Architecture
+                Part 3 - Sample Functions
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1386,7 +1263,7 @@ d769ca70729d        alexellis2/faas-webhookstash@sha256:b378f1a144202baa8fb008f2
       
     </div>
     
-      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      <script src="../../assets/javascripts/application.cae2244d.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       
