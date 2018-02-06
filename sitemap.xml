@@ -53,14 +53,18 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+        
     <url>
-     <loc>https://www.openfaas.com//deployment/swarm_digitalocean/</loc>
+     <loc>https://www.openfaas.com//cloud-platforms/swarm_digitalocean/</loc>
      <lastmod>2018-02-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://www.openfaas.com//deployment/play-with-docker/</loc>
+     <loc>https://www.openfaas.com//cloud-platforms/play-with-docker/</loc>
      <lastmod>2018-02-05</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -321,87 +321,87 @@
             "title": "Helm chart"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/", 
+            "location": "/cloud-platforms/swarm_digitalocean/", 
             "text": "Deployment guide for DigitalOcean\n\n\nIn this guide we will be using the \ndocker-machine\n tool to provision a number of Docker Swarm nodes then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to \nDigital Ocean here to get free credits\n. Once you've signed up come back to the tutorial. \n\n\nA foreword on security\n\n\nThese instructions are for a development environment. If you plan to expose OpenFaaS on the public Internet you need to enable basic authentication with a proxy such as Kong or Traefik at a minimum. TLS is also highly recomended and freely available with LetsEncrypt.org. \nKong guide\n \nTraefik guide\n.\n\n\nCreate DigitalOcean API Access Token\n\n\nFollow the \nDigitalOcean instructions here\n to create a Personal Access Token with \nRead\n and \nWrite\n permissions, give the token a descriptive name for example \nopenfaas-getting-started\n.\n\n\nNow set an environment variable with the new token value.\n\n\n$ export DOTOKEN=738cb0cd2jfhu84c33hu...\n\n\n\n\n\n\nIf you want to make this permanent, you can insert the value into your \n~/.bash_profile\n file.\n\n\n\n\nInstall Docker Machine\n\n\nType in \ndocker-machine\n to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download \nDocker Machine here\n. \n\n\nCreate Docker Nodes\n\n\nUse Docker Machine to create Docker hosts or nodes. On Digital Ocean your hosts or VMs (Virtual Machines) are called \nDroplets\n and will run a full version of Linux. Note: you'll be able to connect to any of your droplets with \nssh\n later on.\n\n\nThe example below creates 3 droplets in the NYC3 zone, if you want to deploy only one Droplet change \n1 2 3\n to \n1\n.\n\n\nThis process will take a few minutes as Droplets are created and Docker installed.\n\nfor i in 1 2 3; do\n    docker-machine create \\\n        --driver digitalocean \\\n        --digitalocean-image ubuntu-17-04-x64 \\\n        --digitalocean-tags openfaas-getting-started \\\n        --digitalocean-region=nyc3 \\\n        --digitalocean-access-token $DOTOKEN \\\n        node-$i;\ndone\n\n\n\nList the newly created Docker nodes.\n\n\n$ docker-machine ls\n\nNAME     ACTIVE   DRIVER         STATE     URL                          SWARM   DOCKER        ERRORS\nnode-1   -        digitalocean   Running   tcp://104.131.69.233:2376            v17.07.0-ce\nnode-2   -        digitalocean   Running   tcp://104.131.115.146:2376           v17.07.0-ce\nnode-3   -        digitalocean   Running   tcp://159.203.168.121:2376           v17.07.0-ce\n\n\n\n\nRefer to the \ndocumentation\n for more detailed information on the DigitalOcean options for docker-machine.\n\n\nCreate your Docker Swarm\n\n\nA Docker Swarm can contain as little as a single master node and begins by running the \ndocker swarm init\n command. It's important if you have more than one node that you specify an \n--advertise-addr\n value.\n\n\nIntialize Docker Swarm on \nnode-1\n.\n\n\n$ docker-machine ssh node-1 -- docker swarm init --advertise-addr $(docker-machine ip node-1)\n\n\n\n\n\n\nIf you opted to deploy a single node, then skip to the next section.\n\n\n\n\nWhen deploying more than a single Docker host take a note of the command to add a worker to the Swarm. This output contains your \njoin token\n. \n\n\n\n\nIf you lose it you can get a new one any time with the command: \ndocker swarm join-token worker\n or \nmanager\n.\n\n\n\n\nSwarm initialized: current node (je5vne1f974fea60ca75q2cac) is now a manager.\n\nTo add a worker to this swarm, run the following command:\n\n    docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377\n\nTo add a manager to this swarm, run \ndocker swarm join-token manager\n and follow the instructions.\n\n\n\n\nAdd \nnode-2\n to the Swarm, using the \ndocker swarm join..\n command returned when initializing the master.\n\n$ docker-machine ssh node-2 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377\n\n\n\nRepeat for \nnode-3\n.\n\n\n$ docker-machine ssh node-3 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377\n\n\n\n\nConfigure Docker CLI to use remote Swarm\n\n\nRun this command each time you open a new shell, this tells Docker where your remote Swarm is.\n\n\neval $(docker-machine env node-1)\n\n\n\n\nDeploy the OpenFaaS Stack\n\n\nThis command clones the OpenFaaS Github repository then checkouts out a stable release before deploying a Docker stack. Docker Swarm will automatically distribute your functions and OpenFaaS services across the cluster.\n\n\n$ git clone https://github.com/alexellis/faas \n \\\n  cd faas \n \\\n  git checkout 0.6.5 \n \\\n  ./deploy_stack.sh\n\n\n\n\nTest the UI\n\n\nWithin a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on DigitalOcean.\n\n\nAccess the Gateway UI via the IP address returned by \ndocker-machine ip node-1\n (you can also access via \nnode-2\n and \nnode-3\n):\n\n\n$ echo http://$(docker-machine ip node-1):8080\n\n\n\n\nPrometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:\n\n\n$ echo http://$(docker-machine ip node-1):9090\n\n\n\n\nDeleting OpenFaaS Droplets\n\n\nYou can use \ndocker-machine\n to delete any created Droplets if are finished with your OpenFaaS deployment.\n\n\ndocker-machine rm node-1 node-2 node-3\n\n\n\n\nAdvanced\n\n\nCreate a Load Balancer\n\n\nDigital Ocean provide their own \nLoad Balancers\n which mean you only need to share or map one IP address to your DNS records or internal applications. They can also apply health-checks which ensure traffic is only routed to healthy nodes.\n\n\nFrom the DigitalOcean console Networking page, open the Load Balancers tab and click \nCreate Load Balancer\n.\n\n\nGive the balancer a name and select the Droplets which will be balanced using the \nopenfaas-getting-started\n tag and \nNYC3\n region (these were values passed to docker-machine when creating the nodes).\n\n\n\n\nUpdate the forwarding rules to point at the Gateway on \n8080\n and Prometheus dashboard on \n9090\n:\n\n\n\nExpand the Advanced section and update the health check to use port \n8080\n.\n\n\n\nClick \nCreate Load Balancer\n and after a few minutes your balancer will be available.\n\n\n\n\nYou can now access the OpenFaaS Gateway, Prometheus dashboard and all functions via the load balanced IP address. For example from the balancer above:\n- Gateway: \nhttp://45.55.124.29:8080\n\n- Prometheus: \nhttp://45.55.124.29:9090", 
             "title": "Digital Ocean"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#deployment-guide-for-digitalocean", 
+            "location": "/cloud-platforms/swarm_digitalocean/#deployment-guide-for-digitalocean", 
             "text": "In this guide we will be using the  docker-machine  tool to provision a number of Docker Swarm nodes then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to  Digital Ocean here to get free credits . Once you've signed up come back to the tutorial.", 
             "title": "Deployment guide for DigitalOcean"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#a-foreword-on-security", 
+            "location": "/cloud-platforms/swarm_digitalocean/#a-foreword-on-security", 
             "text": "These instructions are for a development environment. If you plan to expose OpenFaaS on the public Internet you need to enable basic authentication with a proxy such as Kong or Traefik at a minimum. TLS is also highly recomended and freely available with LetsEncrypt.org.  Kong guide   Traefik guide .", 
             "title": "A foreword on security"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#create-digitalocean-api-access-token", 
+            "location": "/cloud-platforms/swarm_digitalocean/#create-digitalocean-api-access-token", 
             "text": "Follow the  DigitalOcean instructions here  to create a Personal Access Token with  Read  and  Write  permissions, give the token a descriptive name for example  openfaas-getting-started .  Now set an environment variable with the new token value.  $ export DOTOKEN=738cb0cd2jfhu84c33hu...   If you want to make this permanent, you can insert the value into your  ~/.bash_profile  file.", 
             "title": "Create DigitalOcean API Access Token"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#install-docker-machine", 
+            "location": "/cloud-platforms/swarm_digitalocean/#install-docker-machine", 
             "text": "Type in  docker-machine  to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download  Docker Machine here .", 
             "title": "Install Docker Machine"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#create-docker-nodes", 
+            "location": "/cloud-platforms/swarm_digitalocean/#create-docker-nodes", 
             "text": "Use Docker Machine to create Docker hosts or nodes. On Digital Ocean your hosts or VMs (Virtual Machines) are called  Droplets  and will run a full version of Linux. Note: you'll be able to connect to any of your droplets with  ssh  later on.  The example below creates 3 droplets in the NYC3 zone, if you want to deploy only one Droplet change  1 2 3  to  1 .  This process will take a few minutes as Droplets are created and Docker installed. for i in 1 2 3; do\n    docker-machine create \\\n        --driver digitalocean \\\n        --digitalocean-image ubuntu-17-04-x64 \\\n        --digitalocean-tags openfaas-getting-started \\\n        --digitalocean-region=nyc3 \\\n        --digitalocean-access-token $DOTOKEN \\\n        node-$i;\ndone  List the newly created Docker nodes.  $ docker-machine ls\n\nNAME     ACTIVE   DRIVER         STATE     URL                          SWARM   DOCKER        ERRORS\nnode-1   -        digitalocean   Running   tcp://104.131.69.233:2376            v17.07.0-ce\nnode-2   -        digitalocean   Running   tcp://104.131.115.146:2376           v17.07.0-ce\nnode-3   -        digitalocean   Running   tcp://159.203.168.121:2376           v17.07.0-ce  Refer to the  documentation  for more detailed information on the DigitalOcean options for docker-machine.", 
             "title": "Create Docker Nodes"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#create-your-docker-swarm", 
+            "location": "/cloud-platforms/swarm_digitalocean/#create-your-docker-swarm", 
             "text": "A Docker Swarm can contain as little as a single master node and begins by running the  docker swarm init  command. It's important if you have more than one node that you specify an  --advertise-addr  value.  Intialize Docker Swarm on  node-1 .  $ docker-machine ssh node-1 -- docker swarm init --advertise-addr $(docker-machine ip node-1)   If you opted to deploy a single node, then skip to the next section.   When deploying more than a single Docker host take a note of the command to add a worker to the Swarm. This output contains your  join token .    If you lose it you can get a new one any time with the command:  docker swarm join-token worker  or  manager .   Swarm initialized: current node (je5vne1f974fea60ca75q2cac) is now a manager.\n\nTo add a worker to this swarm, run the following command:\n\n    docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377\n\nTo add a manager to this swarm, run  docker swarm join-token manager  and follow the instructions.  Add  node-2  to the Swarm, using the  docker swarm join..  command returned when initializing the master. $ docker-machine ssh node-2 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377  Repeat for  node-3 .  $ docker-machine ssh node-3 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377", 
             "title": "Create your Docker Swarm"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#configure-docker-cli-to-use-remote-swarm", 
+            "location": "/cloud-platforms/swarm_digitalocean/#configure-docker-cli-to-use-remote-swarm", 
             "text": "Run this command each time you open a new shell, this tells Docker where your remote Swarm is.  eval $(docker-machine env node-1)", 
             "title": "Configure Docker CLI to use remote Swarm"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#deploy-the-openfaas-stack", 
+            "location": "/cloud-platforms/swarm_digitalocean/#deploy-the-openfaas-stack", 
             "text": "This command clones the OpenFaaS Github repository then checkouts out a stable release before deploying a Docker stack. Docker Swarm will automatically distribute your functions and OpenFaaS services across the cluster.  $ git clone https://github.com/alexellis/faas   \\\n  cd faas   \\\n  git checkout 0.6.5   \\\n  ./deploy_stack.sh", 
             "title": "Deploy the OpenFaaS Stack"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#test-the-ui", 
+            "location": "/cloud-platforms/swarm_digitalocean/#test-the-ui", 
             "text": "Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on DigitalOcean.  Access the Gateway UI via the IP address returned by  docker-machine ip node-1  (you can also access via  node-2  and  node-3 ):  $ echo http://$(docker-machine ip node-1):8080  Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:  $ echo http://$(docker-machine ip node-1):9090", 
             "title": "Test the UI"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#deleting-openfaas-droplets", 
+            "location": "/cloud-platforms/swarm_digitalocean/#deleting-openfaas-droplets", 
             "text": "You can use  docker-machine  to delete any created Droplets if are finished with your OpenFaaS deployment.  docker-machine rm node-1 node-2 node-3", 
             "title": "Deleting OpenFaaS Droplets"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#advanced", 
+            "location": "/cloud-platforms/swarm_digitalocean/#advanced", 
             "text": "", 
             "title": "Advanced"
         }, 
         {
-            "location": "/deployment/swarm_digitalocean/#create-a-load-balancer", 
+            "location": "/cloud-platforms/swarm_digitalocean/#create-a-load-balancer", 
             "text": "Digital Ocean provide their own  Load Balancers  which mean you only need to share or map one IP address to your DNS records or internal applications. They can also apply health-checks which ensure traffic is only routed to healthy nodes.  From the DigitalOcean console Networking page, open the Load Balancers tab and click  Create Load Balancer .  Give the balancer a name and select the Droplets which will be balanced using the  openfaas-getting-started  tag and  NYC3  region (these were values passed to docker-machine when creating the nodes).   Update the forwarding rules to point at the Gateway on  8080  and Prometheus dashboard on  9090 :  Expand the Advanced section and update the health check to use port  8080 .  Click  Create Load Balancer  and after a few minutes your balancer will be available.   You can now access the OpenFaaS Gateway, Prometheus dashboard and all functions via the load balanced IP address. For example from the balancer above:\n- Gateway:  http://45.55.124.29:8080 \n- Prometheus:  http://45.55.124.29:9090", 
             "title": "Create a Load Balancer"
         }, 
         {
-            "location": "/deployment/play-with-docker/", 
+            "location": "/cloud-platforms/play-with-docker/", 
             "text": "Deployment guide for Play-with-Docker\n\n\nOne-click Deployment\n\n\nYou can quickly start OpenFaaS on Docker Swarm online using the community-run Docker playground: play-with-docker.com (PWD) by clicking the button below:\n\n\n\n\nManual Deployment\n\n\nThe guide makes use of a cloud playground service called \nplay-with-docker.com\n that provides free Docker hosts for around 4 hours. If you want to try this on your own laptop just follow along.\n\n\n\n\n\n\nGo to \nhttp://play-with-docker.com/\n and start a new session. You may have to fill out a Captcha.\n\n\n\n\n\n\nIt should create a single host machine for you. If you'd like additional worker nodes, click \"Add New Instance\"\n\n\n\n\n\n\nThis one-shot script clones the code, sets up a Docker Swarm master node then deploys OpenFaaS with the sample stack:\n\n\n# git clone https://github.com/openfaas/faas \n \\\n  cd faas \n \\\n  ./deploy_stack.sh \n \\\n  docker service ls\n\n\n\n\nThe shell script makes use of a v3 docker-compose.yml file - read the \ndeploy_stack.sh\n file for more details.\n\n\n\n\n\n\nNow that everything's deployed take note of the two ports at the top of the screen:\n\n\n\n\n\n\n8080 - the API Gateway and OpenFaaS UI\n\n\n\n\n9090 - the Prometheus metrics endpoint", 
             "title": "Play-with-Docker"
         }, 
         {
-            "location": "/deployment/play-with-docker/#deployment-guide-for-play-with-docker", 
+            "location": "/cloud-platforms/play-with-docker/#deployment-guide-for-play-with-docker", 
             "text": "", 
             "title": "Deployment guide for Play-with-Docker"
         }, 
         {
-            "location": "/deployment/play-with-docker/#one-click-deployment", 
+            "location": "/cloud-platforms/play-with-docker/#one-click-deployment", 
             "text": "You can quickly start OpenFaaS on Docker Swarm online using the community-run Docker playground: play-with-docker.com (PWD) by clicking the button below:", 
             "title": "One-click Deployment"
         }, 
         {
-            "location": "/deployment/play-with-docker/#manual-deployment", 
+            "location": "/cloud-platforms/play-with-docker/#manual-deployment", 
             "text": "The guide makes use of a cloud playground service called  play-with-docker.com  that provides free Docker hosts for around 4 hours. If you want to try this on your own laptop just follow along.    Go to  http://play-with-docker.com/  and start a new session. You may have to fill out a Captcha.    It should create a single host machine for you. If you'd like additional worker nodes, click \"Add New Instance\"    This one-shot script clones the code, sets up a Docker Swarm master node then deploys OpenFaaS with the sample stack:  # git clone https://github.com/openfaas/faas   \\\n  cd faas   \\\n  ./deploy_stack.sh   \\\n  docker service ls  The shell script makes use of a v3 docker-compose.yml file - read the  deploy_stack.sh  file for more details.    Now that everything's deployed take note of the two ports at the top of the screen:    8080 - the API Gateway and OpenFaaS UI   9090 - the Prometheus metrics endpoint", 
             "title": "Manual Deployment"
         }, 
