@@ -361,63 +361,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-docker-swarm" title="Create a Docker Swarm" class="md-nav__link">
-    Create a Docker Swarm
+  <a href="#a-foreword-on-security" title="A foreword on security" class="md-nav__link">
+    A foreword on security
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#initialize-swarm-mode" title="Initialize Swarm Mode" class="md-nav__link">
     Initialize Swarm Mode
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#join-swarm-workers" title="Join Swarm Workers" class="md-nav__link">
-    Join Swarm Workers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#deploy-openfaas" title="Deploy OpenFaaS" class="md-nav__link">
-    Deploy OpenFaaS
+  <a href="#deploy-the-stack" title="Deploy the stack" class="md-nav__link">
+    Deploy the stack
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-openfaas" title="Connect to OpenFaaS" class="md-nav__link">
-    Connect to OpenFaaS
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-gateway" title="API Gateway" class="md-nav__link">
-    API Gateway
+  <a href="#test-out-the-ui" title="Test out the UI" class="md-nav__link">
+    Test out the UI
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus" title="Prometheus" class="md-nav__link">
-    Prometheus
+      
+        <li class="md-nav__item">
+  <a href="#learn-the-cli" title="Learn the CLI" class="md-nav__link">
+    Learn the CLI
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -732,63 +706,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-docker-swarm" title="Create a Docker Swarm" class="md-nav__link">
-    Create a Docker Swarm
+  <a href="#a-foreword-on-security" title="A foreword on security" class="md-nav__link">
+    A foreword on security
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#initialize-swarm-mode" title="Initialize Swarm Mode" class="md-nav__link">
     Initialize Swarm Mode
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#join-swarm-workers" title="Join Swarm Workers" class="md-nav__link">
-    Join Swarm Workers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#deploy-openfaas" title="Deploy OpenFaaS" class="md-nav__link">
-    Deploy OpenFaaS
+  <a href="#deploy-the-stack" title="Deploy the stack" class="md-nav__link">
+    Deploy the stack
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-openfaas" title="Connect to OpenFaaS" class="md-nav__link">
-    Connect to OpenFaaS
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-gateway" title="API Gateway" class="md-nav__link">
-    API Gateway
+  <a href="#test-out-the-ui" title="Test out the UI" class="md-nav__link">
+    Test out the UI
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus" title="Prometheus" class="md-nav__link">
-    Prometheus
+      
+        <li class="md-nav__item">
+  <a href="#learn-the-cli" title="Learn the CLI" class="md-nav__link">
+    Learn the CLI
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -807,82 +755,44 @@
               
                 
                 
-                <h1 id="deploy-openfaas-to-docker-swarm">Deploy OpenFaaS to Docker Swarm<a class="headerlink" href="#deploy-openfaas-to-docker-swarm" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">A Foreword On Security</p>
-<p>These instructions are for a development environment. If you plan to expose OpenFaaS on the public Internet you need to enable basic authentication with a proxy such as Kong or Traefik at a minimum.</p>
-<p>TLS is also highly recomended and freely available from LetsEncrypt.org.</p>
-<p>Refer to the <a href="https://github.com/openfaas/faas/blob/master/guide/kong_integration.md">Kong</a> and <a href="https://github.com/openfaas/faas/blob/master/guide/traefik_integration.md">Traefik</a> Integration Guides for instructions on using them with OpenFaaS.</p>
-</div>
-<p>The deployment guide for Docker Swarm provides a simple one-line command to get you up and running in around 60 seconds.</p>
-<p>If you already have a working Docker Swarm you can skip to the <a href="#deploy-openfaas">Deploy OpenFaaS</a> section.</p>
-<h2 id="create-a-docker-swarm">Create a Docker Swarm<a class="headerlink" href="#create-a-docker-swarm" title="Permanent link">&para;</a></h2>
-<p>You can create a single-host Docker Swarm on your laptop with a single command. You don't need any additional software to Docker 17.05 or greater. You can also run these commands on a Linux VM or cloud host running Docker.</p>
-<h3 id="initialize-swarm-mode">Initialize Swarm Mode<a class="headerlink" href="#initialize-swarm-mode" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Initalise the Swarm master node with:</p>
+                <h1 id="deployment-guide-for-docker-swarm">Deployment guide for Docker Swarm<a class="headerlink" href="#deployment-guide-for-docker-swarm" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Note: The best place to start is the README file in the faas or faas-netes repo.</p>
+</blockquote>
+<h3 id="a-foreword-on-security">A foreword on security<a class="headerlink" href="#a-foreword-on-security" title="Permanent link">&para;</a></h3>
+<p>These instructions are for a development environment. If you plan to expose OpenFaaS on the public Internet you need to enable basic authentication with a proxy such as Kong or Traefik at a minimum. TLS is also highly recomended and freely available with LetsEncrypt.org. <a href="https://github.com/openfaas/faas/blob/master/guide/kong_integration.md">Kong guide</a> <a href="https://github.com/openfaas/faas/blob/master/guide/traefik_integration.md">Traefik guide</a>.</p>
+<h2 id="initialize-swarm-mode">Initialize Swarm Mode<a class="headerlink" href="#initialize-swarm-mode" title="Permanent link">&para;</a></h2>
+<p>You can create a single-host Docker Swarm on your laptop with a single command. You don't need any additional software to Docker 17.06 or greater. You can also run these commands on a Linux VM or cloud host.</p>
+<p>This is how you initialize your master node:</p>
 <div class="codehilite"><pre><span></span># docker swarm init
 </pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">Multiple IP Addresses</p>
-<p>If you have more than one IP address you may need to explicitly set the interface the Swarm will advertise on using by adding <code>--advertise-addr eth0</code> to the command above. Refer to the <a href="https://docs.docker.com/engine/reference/commandline/swarm_init/#--advertise-addr">Docker CLI docs</a> for more info.</p>
-</div>
-</li>
-<li>
+<p>If you have more than one IP address you may need to pass a string like <code>--advertise-addr eth0</code> to this command.</p>
 <p>Take a note of the join token</p>
-</li>
-</ol>
-<h3 id="join-swarm-workers">Join Swarm Workers<a class="headerlink" href="#join-swarm-workers" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Log into your worker node(s) (if any) and type in the output from <code>docker swarm init</code> on the master.</p>
-<p>If you've lost this info then type in <code>docker swarm join-token worker</code> and then enter that on the worker.</p>
+<ul>
+<li>Join any workers you need</li>
+</ul>
+<p>Log into your worker node and type in the output from <code>docker swarm init</code> on the master. If you've lost this info then type in <code>docker swarm join-token worker</code> and then enter that on the worker.</p>
 <p>It's also important to pass the <code>--advertise-addr</code> string to any hosts which have a public IP address.</p>
-<div class="admonition note">
-<p class="admonition-title">Optional Firewall Updates</p>
-<p>Check whether you need to enable firewall rules for the <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm ports listed here</a>.</p>
-</div>
-</li>
-</ol>
-<h2 id="deploy-openfaas">Deploy OpenFaaS<a class="headerlink" href="#deploy-openfaas" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Clone the OpenFaaS repo and checkout the latest stable release:</p>
+<blockquote>
+<p>Note: check whether you need to enable firewall rules for the <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm ports listed here</a>.</p>
+</blockquote>
+<h2 id="deploy-the-stack">Deploy the stack<a class="headerlink" href="#deploy-the-stack" title="Permanent link">&para;</a></h2>
+<p>Clone OpenFaaS and then checkout the latest stable release:</p>
 <div class="codehilite"><pre><span></span>$ git clone https://github.com/openfaas/faas &amp;&amp; \
-  cd faas
+  cd faas &amp;&amp; \
+  git checkout 0.6.5 &amp;&amp; \
+  ./deploy_stack.sh
 </pre></div>
 
-</li>
-<li>
-<p>Deploy the OpenFaaS Stack (Linux/OSX)
-    <div class="codehilite"><pre><span></span>$ ./deploy_stack.sh
-</pre></div></p>
-</li>
-<li>
-<p>Deploy the OpenFaaS Stack (Windows Powershell)
-    <div class="codehilite"><pre><span></span>$ ./deploy_stack.ps1
-</pre></div></p>
-</li>
-</ol>
-<p><code>./deploy_stack.*</code> scripts can be run at any time and include a set of sample functions.</p>
-<h2 id="connect-to-openfaas">Connect to OpenFaaS<a class="headerlink" href="#connect-to-openfaas" title="Permanent link">&para;</a></h2>
-<h3 id="api-gateway">API Gateway<a class="headerlink" href="#api-gateway" title="Permanent link">&para;</a></h3>
-<p>OpenFaaS should complete its deployment within a few seconds (or minutes if on a poor WiFi connection), the API gateway and sample functions will be pulled into your local Docker library and you will be able to access the UI at:</p>
-<ul>
-<li><a href="http://localhost:8080">http://localhost:8080</a></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Localhost Times Out</p>
-<p>If you're running on Linux you may find that <code>localhost</code> times out when IPv6 is enabled. In this case force an IPv4 address such as <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>.</p>
-</div>
-<p><img alt="OpenFaaS API Gateway Dashboard" src="https://camo.githubusercontent.com/4981b6203dfdb3c668d16326b184f7fbe0287132/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f4337626b705a62577741416e4b73782e6a7067" /></p>
-<h3 id="prometheus">Prometheus<a class="headerlink" href="#prometheus" title="Permanent link">&para;</a></h3>
-<p>The Grafana dashboard linked to OpenFaaS will be accessible at:</p>
-<ul>
-<li><a href="http://localhost:9090">http://localhost:9090</a></li>
-</ul>
+<p><code>./deploy_stack.sh</code> can be run at any time and includes a set of sample functions. You can read more about these in the <a href="https://github.com/openfaas/faas/blob/master/TestDrive.md">TestDrive document</a></p>
+<h2 id="test-out-the-ui">Test out the UI<a class="headerlink" href="#test-out-the-ui" title="Permanent link">&para;</a></h2>
+<p>Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be pulled into your local Docker library and you will be able to access the UI at:</p>
+<p><a href="http://localhost:8080">http://localhost:8080</a></p>
+<p>If you're running on Linux you may find that <code>localhost</code> times out. In this case force an IPv4 address such as <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>.</p>
+<h2 id="learn-the-cli">Learn the CLI<a class="headerlink" href="#learn-the-cli" title="Permanent link">&para;</a></h2>
+<p>You can now grab a coffee and start learning how to create your first function with the CLI:</p>
+<p><a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Morning coffee with the OpenFaaS CLI</a></p>
                 
                   
                 
