@@ -24,12 +24,6 @@
     </url>
         
     <url>
-     <loc>https://www.openfaas.com//getting-started/sample_functions/</loc>
-     <lastmod>2018-02-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>https://www.openfaas.com//getting-started/functions/</loc>
      <lastmod>2018-02-05</lastmod>
      <changefreq>daily</changefreq>

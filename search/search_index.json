@@ -136,19 +136,9 @@
             "title": "Exploring the functions with curl"
         }, 
         {
-            "location": "/getting-started/sample_functions/", 
-            "text": "Sample functions\n\n\nWe have packaged some simple starter functions in the Docker stack when deployed on Swarm, so as soon as you open the OpenFaaS UI you will see them listed down the left-hand side.\n\n\nHere are a few of the functions:\n\n\n\n\nEcho function (echoit) - echos any received text back to the caller (wraps Linux \ncat\n binary)\n\n\nMarkdown to HTML renderer (markdownrender) - takes .MD input and produces HTML (Golang)\n\n\nDocker Hub Stats function (hubstats) - queries the count of images for a user on the Docker Hub (Golang)\n\n\nNode Info (nodeinfo) function - gives you the OS architecture and detailled info about the CPUS (Node.js)\n\n\nWebhook stasher function (webhookstash) - saves webhook body into container's filesystem - even binaries (Golang)\n\n\n\n\n\n\n\nYou can now grab a coffee and start learning how to create your first function with the CLI:\n\n\nMorning coffee with the OpenFaaS CLI", 
-            "title": "Part 3 - Sample Functions"
-        }, 
-        {
-            "location": "/getting-started/sample_functions/#sample-functions", 
-            "text": "We have packaged some simple starter functions in the Docker stack when deployed on Swarm, so as soon as you open the OpenFaaS UI you will see them listed down the left-hand side.  Here are a few of the functions:   Echo function (echoit) - echos any received text back to the caller (wraps Linux  cat  binary)  Markdown to HTML renderer (markdownrender) - takes .MD input and produces HTML (Golang)  Docker Hub Stats function (hubstats) - queries the count of images for a user on the Docker Hub (Golang)  Node Info (nodeinfo) function - gives you the OS architecture and detailled info about the CPUS (Node.js)  Webhook stasher function (webhookstash) - saves webhook body into container's filesystem - even binaries (Golang)    You can now grab a coffee and start learning how to create your first function with the CLI:  Morning coffee with the OpenFaaS CLI", 
-            "title": "Sample functions"
-        }, 
-        {
             "location": "/getting-started/functions/", 
             "text": "You can now grab a coffee and start learning how to create your first function with the CLI:\n\n\nMorning coffee with the OpenFaaS CLI", 
-            "title": "Part 4 - Create a Function"
+            "title": "Part 3 - Create a Function"
         }, 
         {
             "location": "/architecture/", 
