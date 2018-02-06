@@ -13,7 +13,7 @@
         <meta name="description" content="OpenFaaS is a serverless framework for Docker & Kubernetes">
       
       
-        <link rel="canonical" href="https://www.openfaas.com/developer/functions/">
+        <link rel="canonical" href="https://www.openfaas.com/deployment/swarm_digitalocean/">
       
       
         <meta name="author" content="OpenFaaS Authors">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Functions - OpenFaaS</title>
+        <title>Digital Ocean - OpenFaaS</title>
       
     
     
@@ -102,7 +102,7 @@
                 OpenFaaS
               </span>
               <span class="md-header-nav__topic">
-                Functions
+                Digital Ocean
               </span>
             
           
@@ -311,10 +311,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Deployment Guides
@@ -332,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deployment/swarm/" title="Docker Swarm" class="md-nav__link">
+    <a href="../swarm/" title="Docker Swarm" class="md-nav__link">
       Docker Swarm
     </a>
   </li>
@@ -344,7 +346,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deployment/kubernetes/" title="Kubernetes" class="md-nav__link">
+    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
       Kubernetes
     </a>
   </li>
@@ -354,9 +356,78 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Digital Ocean
+      </label>
+    
+    <a href="./" title="Digital Ocean" class="md-nav__link md-nav__link--active">
+      Digital Ocean
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-foreword-on-security" title="A foreword on security" class="md-nav__link">
+    A foreword on security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-digitalocean-api-access-token" title="Create DigitalOcean API Access Token" class="md-nav__link">
+    Create DigitalOcean API Access Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-machine" title="Install Docker Machine" class="md-nav__link">
+    Install Docker Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-docker-nodes" title="Create Docker Nodes" class="md-nav__link">
+    Create Docker Nodes
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../../deployment/play-with-docker/" title="Play-with-Docker" class="md-nav__link">
+    <a href="../play-with-docker/" title="Play-with-Docker" class="md-nav__link">
       Play-with-Docker
     </a>
   </li>
@@ -419,12 +490,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Development
@@ -442,7 +511,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../gateway/" title="API Gateway" class="md-nav__link">
+    <a href="../../developer/gateway/" title="API Gateway" class="md-nav__link">
       API Gateway
     </a>
   </li>
@@ -454,19 +523,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dashboard/" title="Dashboard UI" class="md-nav__link">
-      Dashboard UI
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../watchdog/" title="Watchdog" class="md-nav__link">
+    <a href="../../developer/watchdog/" title="Watchdog" class="md-nav__link">
       Watchdog
     </a>
   </li>
@@ -476,112 +533,9 @@
           
           
 
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Functions
-      </label>
-    
-    <a href="./" title="Functions" class="md-nav__link md-nav__link--active">
-      Functions
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-function" title="Creating a function" class="md-nav__link">
-    Creating a function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-your-function" title="Testing your function" class="md-nav__link">
-    Testing your function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#asynchronous-processing" title="Asynchronous processing" class="md-nav__link">
-    Asynchronous processing
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-use-asynchronous-processing" title="Why use Asynchronous processing?" class="md-nav__link">
-    Why use Asynchronous processing?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-does-async-work" title="How does async work?" class="md-nav__link">
-    How does async work?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-the-async-stack" title="Deploy the async stack" class="md-nav__link">
-    Deploy the async stack
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#call-a-function" title="Call a function" class="md-nav__link">
-    Call a function
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extend-function-timeouts" title="Extend function timeouts" class="md-nav__link">
-    Extend function timeouts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
 
   <li class="md-nav__item">
-    <a href="../asynchronous/" title="Asynchronous Functions" class="md-nav__link">
+    <a href="../../developer/asynchronous/" title="Asynchronous Functions" class="md-nav__link">
       Asynchronous Functions
     </a>
   </li>
@@ -593,7 +547,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../swagger/" title="Swagger API" class="md-nav__link">
+    <a href="../../developer/swagger/" title="Swagger API" class="md-nav__link">
       Swagger API
     </a>
   </li>
@@ -605,7 +559,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../debug/" title="Debugging" class="md-nav__link">
+    <a href="../../developer/debug/" title="Debugging" class="md-nav__link">
       Debugging
     </a>
   </li>
@@ -617,7 +571,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../backends/" title="Backends" class="md-nav__link">
+    <a href="../../developer/backends/" title="Backends" class="md-nav__link">
       Backends
     </a>
   </li>
@@ -629,7 +583,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../chaining_functions/" title="Function Chaining" class="md-nav__link">
+    <a href="../../developer/chaining_functions/" title="Function Chaining" class="md-nav__link">
       Function Chaining
     </a>
   </li>
@@ -724,30 +678,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../roadmap/" title="Roadmap" class="md-nav__link">
-      Roadmap
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../contributing/" title="Contributing" class="md-nav__link">
-      Contributing
-    </a>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -769,64 +699,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-a-function" title="Creating a function" class="md-nav__link">
-    Creating a function
+  <a href="#a-foreword-on-security" title="A foreword on security" class="md-nav__link">
+    A foreword on security
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-your-function" title="Testing your function" class="md-nav__link">
-    Testing your function
+  <a href="#create-digitalocean-api-access-token" title="Create DigitalOcean API Access Token" class="md-nav__link">
+    Create DigitalOcean API Access Token
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#asynchronous-processing" title="Asynchronous processing" class="md-nav__link">
-    Asynchronous processing
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-use-asynchronous-processing" title="Why use Asynchronous processing?" class="md-nav__link">
-    Why use Asynchronous processing?
+  <a href="#install-docker-machine" title="Install Docker Machine" class="md-nav__link">
+    Install Docker Machine
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#how-does-async-work" title="How does async work?" class="md-nav__link">
-    How does async work?
+      
+        <li class="md-nav__item">
+  <a href="#create-docker-nodes" title="Create Docker Nodes" class="md-nav__link">
+    Create Docker Nodes
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-the-async-stack" title="Deploy the async stack" class="md-nav__link">
-    Deploy the async stack
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#call-a-function" title="Call a function" class="md-nav__link">
-    Call a function
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extend-function-timeouts" title="Extend function timeouts" class="md-nav__link">
-    Extend function timeouts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -845,134 +741,117 @@
               
                 
                 
-                <h1 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h1>
-<h2 id="creating-a-function">Creating a function<a class="headerlink" href="#creating-a-function" title="Permanent link">&para;</a></h2>
-<p>Functions run as Docker containers with the Watchdog component embedded to handle communication with the API Gateway.</p>
-<p>You can find the <a href="https://github.com/openfaas/faas/tree/master/watchdog">reference documentation for the Watchdog here</a>.</p>
-<p><strong>Markdown Parser</strong></p>
-<p>This is the basis of a function which generates HTML from MarkDown:</p>
-<div class="codehilite"><pre><span></span>FROM golang:1.7.5
-RUN mkdir -p /go/src/app
-COPY handler.go /go/src/app
-WORKDIR /go/src/app
-RUN go get github.com/microcosm-cc/bluemonday &amp;&amp; \
-    go get github.com/russross/blackfriday
-
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-
-ADD https://github.com/openfaas/faas/releases/download/v0.3-alpha/fwatchdog /usr/bin
-RUN chmod +x /usr/bin/fwatchdog
-
-ENV fprocess=&quot;/go/src/app/app&quot;
-
-CMD [&quot;/usr/bin/fwatchdog&quot;]
+                <h1 id="deployment-guide-for-digitalocean">Deployment guide for DigitalOcean<a class="headerlink" href="#deployment-guide-for-digitalocean" title="Permanent link">&para;</a></h1>
+<p>In this guide we will be using the <code>docker-machine</code> tool to provision a number of Docker Swarm nodes then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to <a href="https://m.do.co/c/8d4e75e9886f">Digital Ocean here to get free credits</a>. Once you've signed up come back to the tutorial. </p>
+<h3 id="a-foreword-on-security">A foreword on security<a class="headerlink" href="#a-foreword-on-security" title="Permanent link">&para;</a></h3>
+<p>These instructions are for a development environment. If you plan to expose OpenFaaS on the public Internet you need to enable basic authentication with a proxy such as Kong or Traefik at a minimum. TLS is also highly recomended and freely available with LetsEncrypt.org. <a href="https://github.com/openfaas/faas/blob/master/guide/kong_integration.md">Kong guide</a> <a href="https://github.com/openfaas/faas/blob/master/guide/traefik_integration.md">Traefik guide</a>.</p>
+<h2 id="create-digitalocean-api-access-token">Create DigitalOcean API Access Token<a class="headerlink" href="#create-digitalocean-api-access-token" title="Permanent link">&para;</a></h2>
+<p>Follow the <a href="https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2#how-to-generate-a-personal-access-token">DigitalOcean instructions here</a> to create a Personal Access Token with <strong>Read</strong> and <strong>Write</strong> permissions, give the token a descriptive name for example <code>openfaas-getting-started</code>.</p>
+<p>Now set an environment variable with the new token value.</p>
+<div class="codehilite"><pre><span></span>$ export DOTOKEN=738cb0cd2jfhu84c33hu...
 </pre></div>
 
-<p>The base Docker container is not important, you just need to add the watchdog component and then set the fprocess to execute your binary at runtime.</p>
-<p>Update the Docker stack with this:</p>
-<div class="codehilite"><pre><span></span>    markdown:
-        image: alexellis2/faas-markdownrender:latest
-        labels:
-            function: &quot;true&quot;
-        depends_on:
-            - gateway
-        networks:
-            - functions
-</pre></div>
-
-<p><strong>Word counter with busybox</strong></p>
-<div class="codehilite"><pre><span></span>FROM alpine:latest
-
-ADD https://github.com/openfaas/faas/releases/download/v0.3-alpha/fwatchdog /usr/bin
-RUN chmod +x /usr/bin/fwatchdog
-
-ENV fprocess=&quot;wc&quot;
-CMD [&quot;fwatchdog&quot;]
-</pre></div>
-
-<p>Update your Docker stack with this definition:</p>
-<div class="codehilite"><pre><span></span>    wordcount:
-        image: alexellis2/faas-alpinefunction:latest
-        labels:
-            function: &quot;true&quot;
-        depends_on:
-            - gateway
-        networks:
-            - functions
-        environment:
-            fprocess:   &quot;wc&quot;
-</pre></div>
-
-<h2 id="testing-your-function">Testing your function<a class="headerlink" href="#testing-your-function" title="Permanent link">&para;</a></h2>
-<p>You can test your function through a webbrowser against the UI portal on port 8080.</p>
-<p><a href="http://localhost:8080/">http://localhost:8080/</a></p>
-<p>You can also invoke a function by name with curl:</p>
-<div class="codehilite"><pre><span></span>curl --data-binary @README.md http://localhost:8080/function/func_wordcount
-</pre></div>
-
-<h2 id="asynchronous-processing">Asynchronous processing<a class="headerlink" href="#asynchronous-processing" title="Permanent link">&para;</a></h2>
-<p>By default functions are accessed synchronously via the following route:</p>
-<div class="codehilite"><pre><span></span>$ curl --data &quot;message&quot; http://gateway/function/{function_name}
-</pre></div>
-
-<p>As of <a href="https://github.com/openfaas/faas/pull/131">PR #131</a> asynchronous invocation is available for testing.</p>
-<p><em>Logical flow for synchronous functions:</em></p>
-<p><img alt="" src="https://user-images.githubusercontent.com/6358735/29469107-cbc38c88-843e-11e7-9516-c0dd33bab63b.png" /></p>
-<h3 id="why-use-asynchronous-processing">Why use Asynchronous processing?<a class="headerlink" href="#why-use-asynchronous-processing" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Enable longer time-outs</p>
-</li>
-<li>
-<p>Process work whenever resources are available rather than immediately</p>
-</li>
-<li>
-<p>Consume a large batch of work within a few seconds and let it process at its own pace</p>
-</li>
-</ul>
-<h3 id="how-does-async-work">How does async work?<a class="headerlink" href="#how-does-async-work" title="Permanent link">&para;</a></h3>
-<p>Here is a conceptual diagram</p>
-<p><img alt="" src="https://user-images.githubusercontent.com/6358735/29469109-cc03c244-843e-11e7-9dfd-a540799dac28.png" /></p>
-<ul>
-<li><a href="https://github.com/open-faas/nats-queue-worker">queue-worker</a></li>
-</ul>
-<h3 id="deploy-the-async-stack">Deploy the async stack<a class="headerlink" href="#deploy-the-async-stack" title="Permanent link">&para;</a></h3>
-<p>The reference implementation for asychronous processing uses NATS Streaming, but you are free to extend OpenFaaS and write your own <a href="https://github.com/open-faas/nats-queue-worker">queue-worker</a>.</p>
-<p>Swarm:</p>
-<div class="codehilite"><pre><span></span>$ ./deploy_extended.sh
-</pre></div>
-
-<p>K8s:</p>
-<div class="codehilite"><pre><span></span>$ kubectl -f delete ./faas.yml
-$ kubectl -f apply ./faas.async.yml,nats.yml
-</pre></div>
-
-<h3 id="call-a-function">Call a function<a class="headerlink" href="#call-a-function" title="Permanent link">&para;</a></h3>
-<p>Functions do not need to be modified to work asynchronously, just use this alternate route:</p>
-<div class="codehilite"><pre><span></span>$ http://gateway/async-function/{function_name}
-</pre></div>
-
-<p>If you want the function to call another function or a different endpoint when it is finished then pass the <code>X-Callback-Url</code> header. This is optional.</p>
-<div class="codehilite"><pre><span></span>$ curl http://gateway/async-function/{function_name} \
-    -H &quot;X-Callback-Url: http://gateway/function/send2slack&quot; \
-    --data-binary @sample.json
-</pre></div>
-
-<h3 id="extend-function-timeouts">Extend function timeouts<a class="headerlink" href="#extend-function-timeouts" title="Permanent link">&para;</a></h3>
-<p>Functions have three timeouts configurable by environmental variables expressed in seconds:</p>
-<p>HTTP:</p>
-<ul>
-<li>read_timeout</li>
-<li>write_timeout</li>
-</ul>
-<p>Hard timeout:</p>
-<ul>
-<li>exec_timeout</li>
-</ul>
-<p>To make use of these just add them to your Dockerfile when needed as ENV variables.</p>
 <blockquote>
-<p><a href="https://github.com/openfaas/faas/tree/master/watchdog">Function watchdog reference</a></p>
+<p>If you want to make this permanent, you can insert the value into your <code>~/.bash_profile</code> file.</p>
 </blockquote>
+<h2 id="install-docker-machine">Install Docker Machine<a class="headerlink" href="#install-docker-machine" title="Permanent link">&para;</a></h2>
+<p>Type in <code>docker-machine</code> to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download <a href="https://docs.docker.com/machine/install-machine/">Docker Machine here</a>. </p>
+<h2 id="create-docker-nodes">Create Docker Nodes<a class="headerlink" href="#create-docker-nodes" title="Permanent link">&para;</a></h2>
+<p>Use Docker Machine to create Docker hosts or nodes. On Digital Ocean your hosts or VMs (Virtual Machines) are called <em>Droplets</em> and will run a full version of Linux. Note: you'll be able to connect to any of your droplets with <code>ssh</code> later on.</p>
+<p>The example below creates 3 droplets in the NYC3 zone, if you want to deploy only one Droplet change <code>&quot;1 2 3&quot;</code> to <code>&quot;1&quot;</code>.</p>
+<p>This process will take a few minutes as Droplets are created and Docker installed.
+<div class="codehilite"><pre><span></span>for i in 1 2 3; do
+    docker-machine create \
+        --driver digitalocean \
+        --digitalocean-image ubuntu-17-04-x64 \
+        --digitalocean-tags openfaas-getting-started \
+        --digitalocean-region=nyc3 \
+        --digitalocean-access-token $DOTOKEN \
+        node-$i;
+done
+</pre></div></p>
+<p>List the newly created Docker nodes.</p>
+<div class="codehilite"><pre><span></span>$ docker-machine ls
+
+NAME     ACTIVE   DRIVER         STATE     URL                          SWARM   DOCKER        ERRORS
+node-1   -        digitalocean   Running   tcp://104.131.69.233:2376            v17.07.0-ce
+node-2   -        digitalocean   Running   tcp://104.131.115.146:2376           v17.07.0-ce
+node-3   -        digitalocean   Running   tcp://159.203.168.121:2376           v17.07.0-ce
+</pre></div>
+
+<p>Refer to the <a href="https://docs.docker.com/machine/drivers/digital-ocean/">documentation</a> for more detailed information on the DigitalOcean options for docker-machine.</p>
+<h1 id="create-your-docker-swarm">Create your Docker Swarm<a class="headerlink" href="#create-your-docker-swarm" title="Permanent link">&para;</a></h1>
+<p>A Docker Swarm can contain as little as a single master node and begins by running the <code>docker swarm init</code> command. It's important if you have more than one node that you specify an <code>--advertise-addr</code> value.</p>
+<p>Intialize Docker Swarm on <code>node-1</code>.</p>
+<div class="codehilite"><pre><span></span>$ docker-machine ssh node-1 -- docker swarm init --advertise-addr $(docker-machine ip node-1)
+</pre></div>
+
+<blockquote>
+<p>If you opted to deploy a single node, then skip to the next section.</p>
+</blockquote>
+<p>When deploying more than a single Docker host take a note of the command to add a worker to the Swarm. This output contains your <em>join token</em>. </p>
+<blockquote>
+<p>If you lose it you can get a new one any time with the command: <code>docker swarm join-token worker</code> or <code>manager</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>Swarm initialized: current node (je5vne1f974fea60ca75q2cac) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377
+
+To add a manager to this swarm, run &#39;docker swarm join-token manager&#39; and follow the instructions.
+</pre></div>
+
+<p>Add <code>node-2</code> to the Swarm, using the <code>docker swarm join..</code> command returned when initializing the master.
+<div class="codehilite"><pre><span></span>$ docker-machine ssh node-2 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377
+</pre></div></p>
+<p>Repeat for <code>node-3</code>.</p>
+<div class="codehilite"><pre><span></span>$ docker-machine ssh node-3 -- docker swarm join --token SWMTKN-1-239v0epdnhuol2ldguttncoaleovy29hnwyglde0kba1owc9ng-9488z5we2invwcn69f5flq7uu 104.131.69.233:2377
+</pre></div>
+
+<h2 id="configure-docker-cli-to-use-remote-swarm">Configure Docker CLI to use remote Swarm<a class="headerlink" href="#configure-docker-cli-to-use-remote-swarm" title="Permanent link">&para;</a></h2>
+<p>Run this command each time you open a new shell, this tells Docker where your remote Swarm is.</p>
+<div class="codehilite"><pre><span></span>eval $(docker-machine env node-1)
+</pre></div>
+
+<h2 id="deploy-the-openfaas-stack">Deploy the OpenFaaS Stack<a class="headerlink" href="#deploy-the-openfaas-stack" title="Permanent link">&para;</a></h2>
+<p>This command clones the OpenFaaS Github repository then checkouts out a stable release before deploying a Docker stack. Docker Swarm will automatically distribute your functions and OpenFaaS services across the cluster.</p>
+<div class="codehilite"><pre><span></span>$ git clone https://github.com/alexellis/faas &amp;&amp; \
+  cd faas &amp;&amp; \
+  git checkout 0.6.5 &amp;&amp; \
+  ./deploy_stack.sh
+</pre></div>
+
+<h2 id="test-the-ui">Test the UI<a class="headerlink" href="#test-the-ui" title="Permanent link">&para;</a></h2>
+<p>Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on DigitalOcean.</p>
+<p>Access the Gateway UI via the IP address returned by <code>docker-machine ip node-1</code> (you can also access via <code>node-2</code> and <code>node-3</code>):</p>
+<div class="codehilite"><pre><span></span>$ echo http://$(docker-machine ip node-1):8080
+</pre></div>
+
+<p>Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:</p>
+<div class="codehilite"><pre><span></span>$ echo http://$(docker-machine ip node-1):9090
+</pre></div>
+
+<h2 id="deleting-openfaas-droplets">Deleting OpenFaaS Droplets<a class="headerlink" href="#deleting-openfaas-droplets" title="Permanent link">&para;</a></h2>
+<p>You can use <code>docker-machine</code> to delete any created Droplets if are finished with your OpenFaaS deployment.</p>
+<div class="codehilite"><pre><span></span>docker-machine rm node-1 node-2 node-3
+</pre></div>
+
+<h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-load-balancer">Create a Load Balancer<a class="headerlink" href="#create-a-load-balancer" title="Permanent link">&para;</a></h3>
+<p>Digital Ocean provide their own <em>Load Balancers</em> which mean you only need to share or map one IP address to your DNS records or internal applications. They can also apply health-checks which ensure traffic is only routed to healthy nodes.</p>
+<p>From the DigitalOcean console Networking page, open the Load Balancers tab and click <em>Create Load Balancer</em>.</p>
+<p>Give the balancer a name and select the Droplets which will be balanced using the <code>openfaas-getting-started</code> tag and <code>NYC3</code> region (these were values passed to docker-machine when creating the nodes).</p>
+<p><img alt="create_lb" src="https://user-images.githubusercontent.com/83862/30240233-274c4dc0-9564-11e7-8881-54bce652392f.jpg" /></p>
+<p>Update the forwarding rules to point at the Gateway on <code>8080</code> and Prometheus dashboard on <code>9090</code>:
+<img alt="forwarding_rules" src="https://user-images.githubusercontent.com/83862/30240106-0eb71242-9562-11e7-846e-093627026a7c.jpg" /></p>
+<p>Expand the Advanced section and update the health check to use port <code>8080</code>.
+<img alt="health_checks" src="https://user-images.githubusercontent.com/83862/30240104-0e98e3d0-9562-11e7-89b6-c266384e35d8.jpg" /></p>
+<p>Click <code>Create Load Balancer</code> and after a few minutes your balancer will be available.</p>
+<p><img alt="balancer_ready" src="https://user-images.githubusercontent.com/83862/30240232-2747becc-9564-11e7-867a-c3ac220f2ae3.png" /></p>
+<p>You can now access the OpenFaaS Gateway, Prometheus dashboard and all functions via the load balanced IP address. For example from the balancer above:
+- Gateway: <a href="http://45.55.124.29:8080">http://45.55.124.29:8080</a>
+- Prometheus: <a href="http://45.55.124.29:9090">http://45.55.124.29:9090</a></p>
                 
                   
                 
@@ -991,7 +870,7 @@ $ kubectl -f apply ./faas.async.yml,nats.yml
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../watchdog/" title="Watchdog" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../kubernetes/" title="Kubernetes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1000,19 +879,19 @@ $ kubectl -f apply ./faas.async.yml,nats.yml
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Watchdog
+                Kubernetes
               </span>
             </div>
           </a>
         
         
-          <a href="../asynchronous/" title="Asynchronous Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../play-with-docker/" title="Play-with-Docker" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Asynchronous Functions
+                Play-with-Docker
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
